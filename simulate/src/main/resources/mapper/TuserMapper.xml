@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjt.mapper.TuserMapper">
+  <resultMap id="BaseResultMap" type="com.zjt.entity.Tuser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="true_name" jdbcType="VARCHAR" property="trueName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="dept" jdbcType="VARCHAR" property="dept" />
+  </resultMap>
+  
+  <!--根据角色id查询所有资源-->
+  <select id="selectByList" resultMap="BaseResultMap">
+    <![CDATA[
+	    select t_user.id,t_user.bz,t_user.password,t_user.true_name,t_user.user_name,t_user.remarks,dept.dept_name  from t_user left join
+	    dept ON t_user.dept= dept.dept_id where t_user.bz != 'admin' order by t_user.id 
+    ]]>
+  </select>
+  
+</mapper>
