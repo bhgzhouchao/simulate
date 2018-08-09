@@ -63,7 +63,7 @@
 		 	clearContent();
 		 	
 		 	for (var i = 0; i < 5; i++) {
-                $("#deptAct").append("<option  value=10 > aa </option>");
+                $("#deptAct").append("<option  value=110 > aa </option>");
                 //$("#deptLeader").append("<option  value=" + item.id + ">" + item.userName + "</option>");
             }
 		 	
