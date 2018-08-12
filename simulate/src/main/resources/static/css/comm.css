@@ -2,3 +2,6 @@
      top: 40%;
      transform: translateY(10%);
 }
+
+.layui-body{overflow-y: scroll;}
+

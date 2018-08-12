@@ -21,8 +21,18 @@
   
   
   <select id="getDeptListSerch" parameterType="java.util.HashMap" resultMap="BaseResultMap">
- 	 select id,dept_id,dept_name,dept_act,dept_leader,remarks from dept
- 	 where 1 = 1
+ 	 SELECT
+		dept.id,
+		dept_id,
+		dept_name,
+		user1.user_name AS  dept_act,
+		user2.user_name AS dept_leader,
+		dept.remarks
+	FROM
+		dept
+	LEFT JOIN t_user user1 ON dept.dept_act = user1.id
+	LEFT JOIN t_user user2 ON dept.dept_leader = user2.id
+ 	WHERE 1 = 1
  	<if test="deptId != null and deptId != ''">
 		AND dept_id like '%${deptId}%'
 	</if>  

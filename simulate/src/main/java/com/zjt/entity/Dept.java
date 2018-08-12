@@ -84,5 +84,13 @@ public class Dept {
 	public void setDeptLeader(String deptLeader) {
 		this.deptLeader = deptLeader;
 	}
+
+	public String getDeptAct() {
+		return deptAct;
+	}
+
+	public void setDeptAct(String deptAct) {
+		this.deptAct = deptAct;
+	}
     
 }
