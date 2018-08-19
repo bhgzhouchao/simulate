@@ -225,7 +225,7 @@
                      skin: 'layui-layer-molv',
                      area:'60%',
                      type: 1,
-                     title:'编辑用户',
+                     title:'编辑部门',
                      content: $('#addeditformdivid') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
                  });
 
@@ -237,7 +237,7 @@
  
 //查询表格
  function tableReload(){
-	 tableid.reload('deptTable', {
+	 tableid.reload({
          page: {
            curr: 1 //重新从第 1 页开始
          }
@@ -277,7 +277,7 @@
 	//查询
 	$('#deptSearch').on('click', function(){
 		
-		tableid.reload('deptTable', {
+		tableid.reload({
 	        page: {
 	          curr: 1 //重新从第 1 页开始
 	        }
@@ -352,7 +352,7 @@
                     //请求后台，执行删除操作
                     $.ajax({
                         type: "POST",
-                        url:"admin/dept/deleteDepts",
+                        url:"admin/business/deleteDepts",
                         data:{"Ids":orderNosList.toString()},
                         async: false,
                         error: function(request) {

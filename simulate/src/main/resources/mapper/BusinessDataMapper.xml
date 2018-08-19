@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjt.mapper.BusinessDataMapper">
+  <resultMap id="BaseResultMap" type="com.zjt.entity.BusinessData">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="month" jdbcType="VARCHAR" property="month" />
+    <result column="dept" jdbcType="VARCHAR" property="dept" />
+    <result column="total_price" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="dept_examine" jdbcType="VARCHAR" property="deptExamine" />
+    <result column="leader_examine" jdbcType="VARCHAR" property="leaderExamine" />
+    <result column="dept_examine_date" jdbcType="TIMESTAMP" property="deptExamineDate" />
+    <result column="leader_examine_date" jdbcType="TIMESTAMP" property="leaderExamineDate" />
+    <result column="submit_date" jdbcType="TIMESTAMP" property="submitDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  
+  <select id="getBusinessDataListSerch" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+	 	 SELECT
+			business_data.id,
+			business_data.`month`,
+			dept.dept_name as dept,
+			business_data.total_price,
+			business_data.dept_examine,
+			business_data.dept_examine_date,
+			business_data.leader_examine,
+			business_data.leader_examine_date,
+			business_data.submit_date,
+			business_data.create_user,
+			business_data.create_time
+		FROM
+			business_data
+		LEFT JOIN dept ON business_data.dept = dept.dept_id
+	 	<if test="month != null and month != ''">
+			AND business_data.month =  #{month}
+		</if>
+		limit ${pageNo},${pageSize}
+	</select>
+</mapper>

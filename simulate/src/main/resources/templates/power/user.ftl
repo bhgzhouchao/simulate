@@ -256,7 +256,7 @@
                             //向表单填充数据
                             for (var i = 0; i < data.deptList.length; i++) {
                                 var item = data.deptList[i];
-                                $("#dept").append("<option  value=" + item.deptName + ">" + item.deptName + "</option>");
+                                $("#dept").append("<option  value=" + item.deptId + ">" + item.deptName + "</option>");
                             }
                             layerid=layer.open({//开启表单弹层
                                 skin: 'layui-layer-molv',

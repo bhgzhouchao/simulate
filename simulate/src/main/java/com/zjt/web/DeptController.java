@@ -1,7 +1,5 @@
 package com.zjt.web;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,12 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zjt.entity.Dept;
-import com.zjt.entity.Trole;
-import com.zjt.entity.Tuser;
-import com.zjt.entity.Tuserrole;
 import com.zjt.service.DeptService;
 
-import tk.mybatis.mapper.entity.Example;
 
 
 @Controller

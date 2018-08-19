@@ -82,6 +82,7 @@ public class UserController {
 			Example tuserExample=new Example(Tuser.class);
 			tuserExample.or().andEqualTo("userName",userName);
 			Tuser currentUser=tuserService.selectByExample(tuserExample).get(0);
+			subject.getSession().setAttribute("user", currentUser);
 			session.setAttribute("currentUser", currentUser);
 			//List<Trole> roleList=troleService.findByUserId(currentUser.getId());
 			List<Trole> roleList=troleService.selectRolesByUserId(currentUser.getId());
