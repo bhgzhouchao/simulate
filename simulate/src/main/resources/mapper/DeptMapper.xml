@@ -15,7 +15,7 @@
 
   <select id="getDeptList" resultMap="BaseResultMap">
     <![CDATA[
-    SELECT dept_id,dept_name from dept
+    SELECT id,dept_name from dept
     ]]>
   </select>
   

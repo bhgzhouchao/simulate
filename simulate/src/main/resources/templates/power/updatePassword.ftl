@@ -60,7 +60,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
-                <input type="text" name="userName" readonly value="${currentUser.userName!}" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                <input type="text" name="userName" readonly value="${currentUser.userName!}" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" style="width:190px">
             </div>
         </div>
         <div class="layui-form-item">
@@ -68,14 +68,12 @@
             <div class="layui-input-inline">
                 <input type="password" name="oldPassword" required lay-verify="required" placeholder="请输入旧密码" autocomplete="off" class="layui-input">
             </div>
-            <div class="layui-form-mid layui-word-aux">旧密码</div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">新密码</label>
             <div class="layui-input-inline">
                 <input type="password" name="password" required lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
             </div>
-            <div class="layui-form-mid layui-word-aux">新密码</div>
         </div>
 
         <div class="layui-form-item">

@@ -153,7 +153,8 @@
                             shadeClose:true,
                             end: function(){
                                 layer.close(layerid);
-                                window.location.reload();//刷新框架
+                                pageInit();
+                                //window.location.reload();//刷新框架
                             }
                         });
                         return false;
@@ -167,7 +168,8 @@
                             shadeClose:true,
                             end: function(){
                                 layer.close(layerid);
-                                window.parent.location.reload();//刷新框架
+                                pageInit();
+                                //window.parent.location.reload();//刷新框架
                             }
                         });
 
@@ -255,7 +257,7 @@
                             shadeClose:true,
                             end: function(){
                                 layer.close(layerid);
-                                window.location.reload();//刷新框架
+                                //window.location.reload();//刷新框架
                             }
                         });
                     }
@@ -268,7 +270,8 @@
                             shadeClose:true,
                             end: function(){
                                 layer.close(layerid);
-                                window.parent.location.reload();//刷新框架
+                                pageInit();
+                                //window.parent.location.reload();//刷新框架
                             }
                         });
 

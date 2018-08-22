@@ -55,41 +55,25 @@
    </div>
 </div> 
   
-<div id="addeditformdivid" hidden="" class="layui-fluid" style="margin: 15px;">
+<!-- <div id="addeditformdivid" hidden="" class="layui-fluid" style="margin: 15px;">
     <form class="layui-form" action="" id="addeditformid">
        <label hidden="true" id="editlabelid"></label>
         <input id="editid" name="id" value="" hidden/>
         <div class="layui-form-item">
-            <label class="layui-form-label">部门编号</label>
-            <div class="layui-input-block">
-                <input type="text" id="addDeptId" name="deptId"  placeholder="请输入部门编号" class="layui-input" maxlength="30">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">部门名称</label>
-            <div class="layui-input-block">
-            	<input type="text" id="addDeptName" name="deptName"  placeholder="请输入部门名称" class="layui-input" maxlength="100">
+            <label class="layui-form-label">月份</label>
+            <div class="layui-input-block" style="width:300px">
+            	<input type="text" id="addMonth" name="month" class="layui-input" width="200px">
         	</div>
         </div>
-        
         <div class="layui-form-item">
-            <label class="layui-form-label">部门负责人</label>
-            <div class="layui-input-block">
-            	<select id="deptAct" name="deptAct">
-            	
-				</select>
+        	<label class="layui-form-label">编号</label>
+    		<label class="layui-form-label">业务分类</label>
+            <label class="layui-form-label">业务名称</label>
+            <label class="layui-form-label">单价</label>
+            <div class="layui-input-block" style="width:200px;float:left">
+            	<input type="text" id="addDeptId" name="deptId"  placeholder="请输入数量" class="layui-input" maxlength="30">
         	</div>
         </div>
-        
-        <div class="layui-form-item">
-            <label class="layui-form-label">分管院领导</label>
-            <div class="layui-input-block">
-            	<select id="deptLeader" name="deptLeader">
-            	
-				</select>
-        	</div>
-        </div>
-        
         <div class="layui-form-item">
             <label class="layui-form-label">备注</label>
             <div class="layui-input-block">
@@ -103,7 +87,7 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->
  <script type="text/html" id="usernameTpl">
   <a href="javascript:void(0)" onclick="toEdit({{ d.id }})" class="layui-table-link" target="_blank">{{ d.month }}</a>
 </script>

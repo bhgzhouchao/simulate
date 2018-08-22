@@ -352,7 +352,7 @@
                     //请求后台，执行删除操作
                     $.ajax({
                         type: "POST",
-                        url:"admin/business/deleteDepts",
+                        url:"admin/dept/deleteDepts",
                         data:{"Ids":orderNosList.toString()},
                         async: false,
                         error: function(request) {

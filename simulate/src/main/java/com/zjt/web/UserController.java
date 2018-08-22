@@ -8,6 +8,8 @@ import com.zjt.entity.Tuser;
 import com.zjt.service.TmenuService;
 import com.zjt.service.TroleService;
 import com.zjt.service.TuserService;
+import com.zjt.util.MyDES;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -74,7 +76,7 @@ public class UserController {
     		return map;
     	}
 		Subject subject=SecurityUtils.getSubject();
-		UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(), user.getPassword());
+		UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(), MyDES.encryptBasedDes(user.getPassword()));
 		try{
 			subject.login(token); // 登录认证
 			String userName=(String) SecurityUtils.getSubject().getPrincipal();
@@ -115,7 +117,7 @@ public class UserController {
 		Trole currentRole=troleService.selectByKey(roleId);
 		session.setAttribute("currentRole", currentRole); // 保存当前角色信息
 
-		putTmenuOneClassListIntoSession(session);
+		putTmenuOneClassListIntoSession(session,currentRole.getId());
 
 		map.put("success", true);
 		return map;
@@ -147,9 +149,10 @@ public class UserController {
 	@GetMapping("/loadMenuInfo")
 	public String loadMenuInfo(HttpSession session, Integer parentId)throws Exception{
 
-		putTmenuOneClassListIntoSession(session);
-
 		Trole currentRole=(Trole) session.getAttribute("currentRole");
+
+		putTmenuOneClassListIntoSession(session,currentRole.getId());
+
 		//根据当前用户的角色id和父节点id查询所有菜单及子集json
 		String json=getAllMenuByParentId(parentId,currentRole.getId()).toString();
 		//System.out.println(json);
@@ -236,12 +239,16 @@ public class UserController {
 
 
 
-public void putTmenuOneClassListIntoSession(HttpSession session){
+public void putTmenuOneClassListIntoSession(HttpSession session, Integer integer){
 	//用来在welcome.ftl中获取主菜单列表
 	Example example=new Example(Tmenu.class);
 	example.or().andEqualTo("pId",1);
-	List<Tmenu> tmenuOneClassList=tmenuService.selectByExample(example);
-	session.setAttribute("tmenuOneClassList", tmenuOneClassList);
+	HashMap<String,Object> paraMap=new HashMap<String,Object>();
+	paraMap.put("pid",1);
+	paraMap.put("roleid",integer);
+	List<Tmenu> menuList=tmenuService.selectByParentIdAndRoleId(paraMap);
+	//List<Tmenu> tmenuOneClassList=tmenuService.selectByExample(example);
+	session.setAttribute("tmenuOneClassList", menuList);
 }
 
 

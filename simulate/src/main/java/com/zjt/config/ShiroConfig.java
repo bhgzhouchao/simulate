@@ -1,6 +1,8 @@
 package com.zjt.config;
 
 import com.zjt.realm.MyRealm;
+
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -147,9 +149,5 @@ public class ShiroConfig {
         cookieRememberMeManager.setCookie(rememberMeCookie());
         return cookieRememberMeManager;
     }
-
-
-
-
 
 }

@@ -37,5 +37,23 @@
 	limit ${pageNo},${pageSize}
   </select>
   
+   <select id="selectBusinessList" parameterType="java.lang.String" resultMap="BaseResultMap">
+ 	 SELECT
+		business.id,
+		business.business_id,
+		business.business_name,
+		business.price,
+		dept.dept_name AS dept_id,
+		business.remarks,
+		business_type.business_type_name AS business_type
+	FROM
+		business
+	LEFT JOIN dept ON dept.id = business.dept_id 
+	LEFT JOIN business_type ON business_type.id = business.business_type
+	WHERE 1 = 1
+	<if test="deptId != null and deptId != ''">
+		AND business.dept_id =  #{deptId}
+	</if>
+  </select>
 
 </mapper>

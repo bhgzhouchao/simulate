@@ -6,9 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zjt.entity.Business;
-import com.zjt.entity.Tuser;
 import com.zjt.service.BusinessService;
 
 @Controller
@@ -39,11 +36,6 @@ public class BusinessController {
 	@ResponseBody
     @RequiresPermissions(value = {"业务管理"})
     public Map<String,Object> getBusinessList(@RequestParam Map<String, Object> params,HttpServletRequest request) {
-		Subject subject = SecurityUtils.getSubject();
-		Tuser loginUser =(Tuser) subject.getSession().getAttribute("user");
-		request.getAttributeNames();
-		request.getAttribute("deptId");
-		request.getAttribute("businessName");
 		Map<String, Object> map = businessService.getBusinessListSerch(params);
     	return map;
     }

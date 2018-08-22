@@ -10,6 +10,8 @@ import com.zjt.model.PageRusult;
 import com.zjt.service.TroleService;
 import com.zjt.service.TuserService;
 import com.zjt.service.TuserroleService;
+import com.zjt.util.MyDES;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import tk.mybatis.mapper.entity.Example;
 
@@ -45,7 +48,7 @@ public class UserAdminController {
     @Resource
     private TuserroleService userRoleService;
 
-
+    
     @RequestMapping("/tousermanage")
     @RequiresPermissions(value = {"用户管理"})
     public String tousermanage() {
@@ -70,6 +73,13 @@ public class UserAdminController {
      * 分页查询用户信息
      */
     @ResponseBody
+    @RequestMapping(value = "/list")
+    @RequiresPermissions(value = {"用户管理"})
+    public Map<String, Object> getUserListBySearch(@RequestParam Map<String, Object> params) {
+    	Map<String, Object> map = userService.getUserListBySearch(params);
+    	return map;
+    }
+    /*@ResponseBody
     @RequestMapping(value = "/list")
     @RequiresPermissions(value = {"用户管理"})
     public Map<String, Object> list(JqgridBean jqgridbean) throws Exception {
@@ -113,7 +123,7 @@ public class UserAdminController {
         resultmap.put("datamap", userList);
 
         return resultmap;
-    }
+    }*/
 
 
     @ResponseBody
@@ -132,6 +142,8 @@ public class UserAdminController {
                     resultmap.put("mesg", "当前用户名已存在");
                     return resultmap;
                 }
+                String tuserPwd = MyDES.encryptBasedDes(tuser.getPassword());
+                tuser.setPassword(tuserPwd);
                 userService.saveNotNull(tuser);
             } else {//编辑
                 Tuser oldObject=userService.selectByKey(tuser.getId());
@@ -140,6 +152,8 @@ public class UserAdminController {
                     resultmap.put("mesg", "当前用户名不存在");
                     return resultmap;
                 }else{
+                	String tuserPwd = MyDES.encryptBasedDes(tuser.getPassword());
+                     tuser.setPassword(tuserPwd);
                     userService.updateNotNull(tuser);
                 }
             }
@@ -159,8 +173,8 @@ public class UserAdminController {
     @ResponseBody
     @RequestMapping(value = "/deleteuser")
     @RequiresPermissions(value = {"用户管理"})
-    public Map<String, Object> deleteuser(Tuser tuser) {
-        LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
+    public Map<String, Object> deleteuser(@RequestParam List<String> Ids) {
+        /*LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
         try {
             if(tuser.getId()!=null&&!tuser.getId().equals(0)){
                 Tuser user=userService.selectByKey(tuser.getId());
@@ -182,8 +196,6 @@ public class UserAdminController {
                 resultmap.put("state", "fail");
                 resultmap.put("mesg", "删除失败");
             }
-
-
             resultmap.put("state", "success");
             resultmap.put("mesg", "删除成功");
             return resultmap;
@@ -192,9 +204,11 @@ public class UserAdminController {
             resultmap.put("state", "fail");
             resultmap.put("mesg", "删除失败，系统异常");
             return resultmap;
-        }
+        }*/
+    	Map<String, Object> map = userService.deleteUsers(Ids);
+		return map;
     }
-
+	
 
 
 
@@ -354,15 +368,15 @@ public class UserAdminController {
                     Example.Criteria criteria=userExample.or();
                     criteria.andEqualTo("id",tuser.getId())
                             .andEqualTo("userName",tuser.getUserName())
-                            .andEqualTo("password",tuser.getOldPassword());
+                            .andEqualTo("password",MyDES.encryptBasedDes(tuser.getOldPassword()));
                     List<Tuser> tuserList=userService.selectByExample(userExample);
                     if(tuserList==null||tuserList.size()==0){
                         resultmap.put("state", "fail");
-                        resultmap.put("mesg", "用户名或密码错误");
+                        resultmap.put("mesg", "旧密码错误");
                         return resultmap;
                     }else{
                         Tuser newEntity=tuserList.get(0);
-                        newEntity.setPassword(tuser.getPassword());
+                        newEntity.setPassword(MyDES.encryptBasedDes(tuser.getPassword()));
                         userService.updateNotNull(newEntity);
                     }
                 }else{

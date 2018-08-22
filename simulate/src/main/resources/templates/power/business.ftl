@@ -126,7 +126,7 @@
     </form>
 </div>
  <script type="text/html" id="usernameTpl">
-  <a href="javascript:void(0)" onclick="toEdit({{ d.id }})" class="layui-table-link" target="_blank">{{ d.businessName }}</a>
+  <a href="javascript:void(0)" onclick="toEdit({{ d.id }})" class="layui-table-link" >{{ d.businessName }}</a>
 </script>
 </body>
 </html>

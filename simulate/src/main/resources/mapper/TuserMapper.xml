@@ -21,5 +21,24 @@
 	    dept ON t_user.dept= dept.dept_id where t_user.bz != 'admin' order by t_user.id 
     ]]>
   </select>
-  
+  <!--根据查询条件查询出所有用户-->
+  <select id="getUserListSerch" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+ 	 SELECT
+		t_user.id,
+		t_user.bz,
+		t_user.password,
+		t_user.true_name,
+		t_user.user_name,
+		t_user.remarks,
+		dept.dept_name dept
+	FROM
+		t_user
+	LEFT JOIN dept ON t_user.dept = dept.id
+	WHERE
+		t_user.bz != 'admin'
+	<if test="userName != null and userName != ''">
+		AND user_name like '%${userName}%'
+	</if>
+	limit ${pageNo},${pageSize}
+  </select>
 </mapper>

@@ -113,7 +113,7 @@
                                 layer.close(layerid);
                                 jQuery("#list2").jqGrid().trigger("reloadGrid");//重新加载数据
                                 //location.reload();
-                                parent.location.reload();
+                                //parent.location.reload();
                             }
                         });
 

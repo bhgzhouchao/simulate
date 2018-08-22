@@ -19,4 +19,8 @@ public interface BusinessDataService extends IService<BusinessData> {
 	Map<String, Object> selectBusinessById(String id);
 
 	ModelAndView toBusiness();
+
+	Map<String, Object> toBusinessDataAdd();
+
+	Map<String, Object> addOrUpdateBusinessData(Map<String, Object> params);
 }
