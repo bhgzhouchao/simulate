@@ -1,12 +1,9 @@
 package com.zjt.web;
 
-import com.github.pagehelper.PageHelper;
 import com.zjt.entity.Dept;
 import com.zjt.entity.Trole;
 import com.zjt.entity.Tuser;
 import com.zjt.entity.Tuserrole;
-import com.zjt.model.JqgridBean;
-import com.zjt.model.PageRusult;
 import com.zjt.service.TroleService;
 import com.zjt.service.TuserService;
 import com.zjt.service.TuserroleService;

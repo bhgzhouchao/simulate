@@ -1,20 +1,18 @@
 package com.zjt.web;
 
-import com.github.pagehelper.PageHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.zjt.entity.Tmenu;
 import com.zjt.entity.Trole;
 import com.zjt.entity.Trolemenu;
 import com.zjt.entity.Tuserrole;
-import com.zjt.model.JqgridBean;
-import com.zjt.model.PageRusult;
 import com.zjt.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import tk.mybatis.mapper.entity.Example;
 
@@ -52,16 +50,11 @@ public class RoleAdminController {
         return "power/role";
     }
 
-    /**
-     * 分页查询角色信息
-     */
-
+    /*
     @ResponseBody
     @RequestMapping(value = "/list")
     @RequiresPermissions(value = {"角色管理"})
-    public Map<String, Object> list(JqgridBean jqgridbean
-                    /*String userName,@RequestParam(value="page",required=false)Integer page*/
-    ) throws Exception {
+    public Map<String, Object> list(JqgridBean jqgridbean) throws Exception {
         LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
         LinkedHashMap<String, Object> datamap = new LinkedHashMap<String, Object>();
 
@@ -81,11 +74,11 @@ public class RoleAdminController {
         List<Trole> roleList = roleService.selectByExample(troleExample);
         PageRusult<Trole> pageRusult =new PageRusult<Trole>(roleList);
 
-        /*Integer totalrecords = roleService.countByExample(troleExample);//总记录数
+        Integer totalrecords = roleService.countByExample(troleExample);//总记录数
         Page pagebean = new Page(jqgridbean.getLength() * ((jqgridbean.getPage() > 0 ? jqgridbean.getPage() : 1) - 1), jqgridbean.getLength(), totalrecords);
         troleExample.setPage(pagebean);
         troleExample.setOrderByClause(jqgridbean.getSidx() + " " + jqgridbean.getSord());
-        List<Trole> roleList = roleService.selectByExample(troleExample);*/
+        List<Trole> roleList = roleService.selectByExample(troleExample);
 
         resultmap.put("currpage", String.valueOf(pageRusult.getPageNum()));
         resultmap.put("totalpages", String.valueOf(pageRusult.getPages()));
@@ -93,6 +86,16 @@ public class RoleAdminController {
         resultmap.put("datamap", roleList);
 
         return resultmap;
+    }*/
+    /**
+     * 分页查询用户信息
+     */
+    @ResponseBody
+    @RequestMapping(value = "/list")
+    @RequiresPermissions(value = {"角色管理"})
+    public Map<String, Object> getRoleListBySearch(@RequestParam Map<String, Object> params) {
+    	Map<String, Object> map = roleService.getRoleListBySearch(params);
+    	return map;
     }
 
 
@@ -138,9 +141,11 @@ public class RoleAdminController {
     @ResponseBody
     @RequestMapping(value = "/deleterole")
     @RequiresPermissions(value = {"角色管理"})
-    public Map<String, Object> deleteuser(Trole trole) {
-        LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
-        try {
+    public Map<String, Object> deleteuser(@RequestParam List<String> Ids) {
+    	Map<String, Object> map = roleService.deleteDepts(Ids);
+		return map;
+        
+        /*try {
             if (trole.getId() != null && !trole.getId().equals(0)) {
                 Trole role = roleService.selectByKey(trole.getId());
                 if (role == null) {
@@ -172,7 +177,7 @@ public class RoleAdminController {
             resultmap.put("state", "fail");
             resultmap.put("mesg", "删除失败，系统异常");
             return resultmap;
-        }
+        }*/
     }
 
 

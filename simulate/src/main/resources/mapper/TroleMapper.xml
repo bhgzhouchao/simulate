@@ -16,17 +16,28 @@
   <!--根据用户id查询所有角色-->
   <select id="selectRolesByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <![CDATA[
-  SELECT
-    tr.ID, tr.BZ, tr.NAME, tr.REMARKS
-  from T_ROLE tr
-  inner join
-  T_USER_ROLE tur
-  on tr.id=tur.role_id
-  where
-  tur.user_id= ]]>#{userid}
+	 SELECT
+	   tr.ID, tr.BZ, tr.NAME, tr.REMARKS
+	 from T_ROLE tr
+	 inner join
+	 T_USER_ROLE tur
+	 on tr.id=tur.role_id
+	 where
+	 tur.user_id= ]]>#{userid}
   </select>
 
 
+<select id="getRoleListBySearch" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+ 	 SELECT
+		 tr.ID, tr.BZ, tr.NAME, tr.REMARKS
+	FROM
+		t_role tr
+ 	WHERE 1 = 1
+ 	<if test="name != null and name != ''">
+		AND tr.name like '%${name}%'
+	</if>  
+	limit ${pageNo},${pageSize}
+  </select>
 
 
 </mapper>
