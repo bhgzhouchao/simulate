@@ -25,6 +25,7 @@
 <script src="${basePath!}/static/layui/layui.js" type="text/javascript"></script>
 
 <script src="${basePath!}/static/js/businessData/businessData.js" type="text/javascript"></script>
+<script src="${basePath!}/static/js/businessData/businessDataDetail.js" type="text/javascript"></script>
 <base href="${basePath!}/">
 
 </head>
@@ -33,6 +34,8 @@
     <form class="layui-form" action="" id="addeditformid">
         <label hidden="true" id="editlabelid">${businessData.id!}</label>
         <input id="editid" name="id" value="${businessData.id!}" hidden/>
+        <input id="deptExamineFlg"  value="${businessData.deptExamine!}" hidden/>
+        <input id="leaderExamineFlg"  value="${businessData.leaderExamine!}" hidden/>
         <div class="layui-form-item">
             <label class="layui-form-label" style="text-align:left">月份</label>
             <div class="layui-input-block" style="width:30%">
@@ -67,7 +70,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
+                <button class="layui-btn" id="submitBtn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
                 <button class="layui-btn" id="businessDataAdd">保存</button>
                 <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>

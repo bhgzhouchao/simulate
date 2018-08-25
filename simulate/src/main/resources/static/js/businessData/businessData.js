@@ -69,7 +69,7 @@ $(function () {
                      }
                      if(data.state=='success'){
                     	 layer.alert("提交成功！", function(){
-                    		 layer.closeAll();
+                    		 parent.layer.closeAll();
                     		 tableReload();
 						});
                      }
@@ -95,7 +95,7 @@ function toEdit(data){
 			layer.close(mask);
 		},
 		cancel: function(index, layero){ 
-			layer.closeAll()
+			layer.closeAll();
 			return false; 
 		},
 		end:function(){
@@ -126,16 +126,16 @@ function tableReload(){
 		    ,method:'post'
 		    ,cols: [[
 		    	 {type:'checkbox'}
-		    	,{field:'month',  title: '月份', templet: '#usernameTpl',width:80}
-		    	,{field:'dept',  title: '所属部门'}
-		    	,{field:'totalPrice',  title: '总金额',width:80}
-		    	,{field:'deptExamine',  title: '部门审批状态',width:120}
-		    	,{field:'deptExamineDate',  title: '部门审批时间',width:120}
-		    	,{field:'leaderExamine',  title: '财务审批状态',width:120}
-		    	,{field:'leaderExamineDate',  title: '财务审批时间',width:140}
-		    	,{field:'submitDate',  title: '提交审批时间',width:120}
-		    	,{field:'createUser',  title: '创建者'}
-		    	,{field:'createTime',  title: '创建时间'}
+		    	,{field:'month',  title: '月份', templet: '#usernameTpl',width:'7%'}
+		    	,{field:'dept',  title: '所属部门',width:'7%'}
+		    	,{field:'totalPrice',  title: '总金额',width:'10%'}
+		    	,{field:'deptExamine',  title: '部门审批状态',width:'10%'}
+		    	,{field:'deptExamineDate',  title: '部门审批时间',width:'13%'}
+		    	,{field:'leaderExamine',  title: '财务审批状态',width:'10%'}
+		    	,{field:'leaderExamineDate',  title: '财务审批时间',width:'13%'}
+		    	,{field:'submitDate',  title: '提交审批时间',width:'13%'}
+		    	,{field:'createUser',  title: '创建者',width:'7%'}
+		    	,{field:'createTime',  title: '创建时间',width:'13%'}
 		    ]]
 		    ,page: true
 		    ,skin: 'row'
@@ -186,7 +186,7 @@ function tableReload(){
 				layer.close(mask);
 			},
 			cancel: function(index, layero){ 
-				layer.closeAll()
+				layer.closeAll();
 				return false; 
 			},
 			end:function(){
@@ -244,7 +244,7 @@ function tableReload(){
                  }
                  if(data.state=='success'){
                 	 layer.alert(data.mesg, function(){
-                		 layer.closeAll();
+                		 parent.layer.closeAll();
                 		 layer.close(layerid);
                 		 tableReload();
 					});
@@ -282,7 +282,7 @@ function tableReload(){
 	                            }
 	                            if(data.state=='success'){
 	                            	layer.alert(data.mesg, function(){
-	                           		 	layer.closeAll();
+	                            		parent.layer.closeAll();
 	                           		 	$("#busiDataSearch").click();
 	                            	});
 	                            }

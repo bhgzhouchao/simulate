@@ -29,7 +29,7 @@
 
 </head>
 <body >
- <div class="layui-fluid" style ="overflow-y: scroll">
+ <div class="layui-fluid">
     <div class="layui-card">
       <div class="layui-form layui-card-header layuiadmin-card-header-auto">
         <div class="layui-form-item">
@@ -51,7 +51,7 @@
 	       </div> 
        	</div>
   	  </div>
- 	 <table id="businessDataTable" class="layui-hide"   lay-filter="businessDataFilter" style ="overflow-y: scroll"></table> 
+ 	 <table id="businessDataTable" class="layui-hide"   lay-filter="businessDataFilter" ></table> 
    </div>
 </div> 
   
