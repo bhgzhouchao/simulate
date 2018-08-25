@@ -31,30 +31,30 @@
 <body >
 <div id="addeditformdivid"  class="layui-fluid" style="margin: 15px;">
     <form class="layui-form" action="" id="addeditformid">
-        <label hidden="true" id="editlabelid"></label>
-        <input id="editid" name="id" value="" hidden/>
+        <label hidden="true" id="editlabelid">${businessData.id!}</label>
+        <input id="editid" name="id" value="${businessData.id!}" hidden/>
         <div class="layui-form-item">
             <label class="layui-form-label" style="text-align:left">月份</label>
-            <div class="layui-input-block" style="width:300px">
-            	<input type="text" id="addMonth" name="month" class="layui-input" width="200px">
+            <div class="layui-input-block" style="width:30%">
+            	<input type="text" id="addMonth" name="month" class="layui-input" width="20%" value="${businessData.month!}">
         	</div>
         </div>
         <div class="layui-form-item" style="text-align:left">
-	       	<label class="layui-form-label" style="width:60px;text-align:left">编号</label>
-	   		<label class="layui-form-label" style="width:240px;text-align:left">业务分类</label>
-	        <label class="layui-form-label" style="width:240px;text-align:left">业务名称</label>
-	        <label class="layui-form-label" style="width:60px;text-align:left">单价</label>
-	        <label class="layui-form-label" style="width:100px;text-align:left;float:left" >数量</label>
+	       	<label class="layui-form-label" style="width:6%;text-align:left">编号</label>
+	   		<label class="layui-form-label" style="width:28%;text-align:left">业务分类</label>
+	        <label class="layui-form-label" style="width:28%;text-align:left">业务名称</label>
+	        <label class="layui-form-label" style="width:6%;text-align:left">单价</label>
+	        <label class="layui-form-label" style="width:12%;text-align:left;float:left" >数量</label>
 	      </div>
         <#if businessList??>
 			<#list businessList as business>
 				 <div class="layui-form-item" style="text-align:left">
-			       	<label class="layui-form-label" style="width:60px;text-align:left">${business_index +1}</label>
-			   		<label class="layui-form-label" style="width:240px;text-align:left">${business.businessType!}</label>
-		            <label class="layui-form-label" style="width:240px;text-align:left">${business.businessName!}</label>
-		            <label class="layui-form-label" style="width:60px;text-align:left">${business.price!}</label>
-			        <input type="text" id="num${business_index +1}" name="num${business_index +1}"  placeholder="请输入数量" class="layui-input" maxlength="30" style="width:100px;text-align:left;float:left" lay-verify="num">
-			      	<input type="text" id="id${business_index +1}" name="id${business_index +1}" value=${business.id!} hidden="true"/>
+			       	<label class="layui-form-label" style="width:6%;text-align:left">${business_index +1}</label>
+			   		<label class="layui-form-label" style="width:28%;text-align:left">${business.businessType!}</label>
+		            <label class="layui-form-label" style="width:28%;text-align:left">${business.businessName!}</label>
+		            <label class="layui-form-label" style="width:6%;text-align:left">${business.price!}</label>
+			        <input type="text" id="num" name="num"  placeholder="请输入数量" class="layui-input" maxlength="30" style="width:12%;text-align:left;float:left" lay-verify="num" value="${business.num!}">
+			      	<input type="text" id="id" name="id" value=${business.id!} hidden="true"/>
 			      </div>
 			</#list>
 		</#if>
@@ -62,19 +62,17 @@
         <div class="layui-form-item">
             <label class="layui-form-label" style="text-align:left">备注</label>
             <div class="layui-input-block">
-			   <textarea id="remarks" name ="remarks" placeholder="请输入内容" class="layui-textarea" maxlength="85"></textarea>
+			   <textarea id="remarks" name ="remarks" placeholder="请输入内容" class="layui-textarea" maxlength="85" >${businessData.remarks!}</textarea>
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
+                <button class="layui-btn" id="businessDataAdd">保存</button>
                 <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
     </form>
 </div>
- <script type="text/html" id="usernameTpl">
-  <a href="javascript:void(0)" onclick="toEdit({{ d.id }})" class="layui-table-link" target="_blank">{{ d.month }}</a>
-</script>
 </body>
 </html>

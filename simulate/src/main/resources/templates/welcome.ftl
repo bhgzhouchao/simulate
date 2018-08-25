@@ -26,7 +26,7 @@
 				<!-- 顶级菜单 -->
 				<ul class="layui-nav mobileTopLevelMenus" mobile>
 					<li class="layui-nav-item" data-menu="contentManagement">
-						<a href="javascript:;"><i class="seraph icon-caidan"></i><cite>layuiCMS</cite></a>
+						<a href="javascript:;"><i class="seraph icon-caidan"></i><cite>系统菜单</cite></a>
 						<dl class="layui-nav-child">
                             <#--使用freemarker从session中获得一级菜单列表-->
 							<#list tmenuOneClassList as key>

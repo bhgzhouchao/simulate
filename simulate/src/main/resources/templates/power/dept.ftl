@@ -137,7 +137,7 @@
         	</div>
         </div>
         
-        <div class="layui-form-item">
+        <div class="layui-form-item" hidden="">
             <label class="layui-form-label">分管院领导</label>
             <div class="layui-input-block">
             	<select id="deptLeader" name="deptLeader">

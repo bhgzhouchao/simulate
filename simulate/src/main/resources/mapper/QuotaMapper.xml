@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjt.mapper.QuotaMapper">
+  <resultMap id="BaseResultMap" type="com.zjt.entity.Quota">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="subject" jdbcType="VARCHAR" property="subject" />
+    <result column="subject_value" jdbcType="VARCHAR" property="subjectValue" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  
+  <select id="getQuotaListSerch" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+ 	 SELECT
+		quota.id,
+		quota.year,
+		subject.subject_name AS subject,
+		quota.subject_value,
+		quota.remarks
+	FROM
+		quota
+	LEFT JOIN subject  ON quota.subject = subject.id
+ 	WHERE 1 = 1
+ 	<if test="subject != null and subject != ''">
+		AND quota.subject = #{subject}
+	</if> 
+	<if test="year != null and year != ''">
+		AND quota.year = #{year}
+	</if>
+	limit ${pageNo},${pageSize}
+  </select>
+  
+</mapper>

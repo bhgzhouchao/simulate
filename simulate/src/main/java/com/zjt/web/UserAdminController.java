@@ -150,7 +150,7 @@ public class UserAdminController {
                     return resultmap;
                 }else{
                 	String tuserPwd = MyDES.encryptBasedDes(tuser.getPassword());
-                     tuser.setPassword(tuserPwd);
+                    tuser.setPassword(tuserPwd);
                     userService.updateNotNull(tuser);
                 }
             }

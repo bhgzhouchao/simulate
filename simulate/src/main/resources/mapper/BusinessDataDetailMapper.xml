@@ -19,4 +19,20 @@
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+  <delete id="deleteByBusinessDataId" parameterType="java.lang.String">
+    delete from business_data_detail
+    where business_data_id = #{businessDataId}
+  </delete>
+  <select id="selectListByBusinessDataId" parameterType="java.lang.String" resultMap="BaseResultMap">
+ 	 SELECT
+		business_data_detail.business_id AS id,
+		business_data_detail.business_name,
+		business_type.business_type_name AS business_type,
+		business_data_detail.price,
+		business_data_detail.num
+	FROM
+		business_data_detail LEFT JOIN business_type ON business_data_detail.business_type = business_type.id
+ 	WHERE business_data_id =  #{id}
+ 	
+  </select>
 </mapper>

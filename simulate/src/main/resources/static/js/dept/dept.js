@@ -262,7 +262,7 @@
 		    	,{field:'deptId',  title: '部门编号', templet: '#usernameTpl',width:100}
 		    	,{field:'deptName',  title: '部门名称'}
 		    	,{field:'deptAct',  title: '部门负责人'}
-		    	,{field:'deptLeader',  title: '分管院领导'}
+		    	//,{field:'deptLeader',  title: '分管院领导'}
 		    	,{field:'remarks',  title: '备注',width:200}
 		    ]]
 		    ,page: true
@@ -376,67 +376,5 @@
            layer.alert("请选择要删除的记录");
      	}
      });
-
-
-
-
-     $("#edit").click(function () {
-     	$("#reset").click();
-     	$("#dept").empty();
-         var id = jQuery("#list2").jqGrid('getGridParam', 'selrow');//jqgrid逻辑id，不是业务表单的主键字段id,这里要注意
-         if (id) {
-             var ret = jQuery("#list2").jqGrid('getRowData', id);//通过jqgrid的逻辑id获取该行数据，通过数据对象ret来获取表单主键字段ret.id
-
-             //请求后台，获取该记录的详细记录，并填充进表单
-             $.ajax({
-                 type: "POST",
-                 url:"admin/user/selectUserById",
-                 data:{id:ret.id},
-                 async: false,
-                 error: function(request) {
-                     layer.alert("与服务器连接失败/(ㄒoㄒ)/~~");
-                 },
-                 success: function(data) {
-                     if(data.state=='fail'){
-                         layer.alert(data.mesg);
-                         return false;
-                     }
-                     if(data.state=='success'){
-                     	//向表单填充数据
-                         $("#editlabelid").html(ret.id);//临时存放id，当提交时再去除赋值给input
-                         $("#userName").val(data.tuser.userName);
-                         $("#password").val(data.tuser.password);
-                         $("#trueName").val(data.tuser.trueName);
-                         $("#bz").val(data.tuser.bz);
-                         
-                         for (var i = 0; i < data.deptList.length; i++) {
-                             var item = data.deptList[i];
-                             $("#dept").append("<option  value=" + item.deptName + ">" + item.deptName + "</option>");
-                         }
-                         
-                         $("select option[value='"+data.tuser.dept+"']").attr("selected", "selected");
-
-                         //开启编辑表单所在的弹层。注意编辑和新建的表单是一套模板
-                         layerid=layer.open({
-                             skin: 'layui-layer-molv',
-                             area:'60%',
-                             type: 1,
-                             title:'编辑用户',
-                             content: $('#addeditformdivid') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
-                         });
-
-                     }
-                 }
-             });
-
-
-         } else {
-             layer.alert("请选择要编辑的记录");
-         }
-
-
-     });
-
-
  }
  

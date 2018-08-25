@@ -59,7 +59,7 @@
 	    	<div class="layui-card-body">
 	        	<div style="padding-bottom: 10px;">
 		          <button class="layui-btn layui-btn-sm" id="add">新增</button>
-		          <button class="layui-btn layui-btn-sm" id="menuPermission">设置菜单权限</button> 
+		          <button class="layui-btn layui-btn-sm" id="menuPermission">设置角色权限</button> 
 		          <button class="layui-btn layui-btn-sm" id="delete">删除</button> 
 	        	</div>
 	       </div> 

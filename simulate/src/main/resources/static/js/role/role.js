@@ -341,7 +341,7 @@ function pageInit() {
 		    ,cols: [[
 		    	 {type:'checkbox'}
 		    	,{field:'id',  title: 'ID',width:80}
-		    	,{field:'name',  title: '部门名称', templet: '#usernameTpl'}
+		    	,{field:'name',  title: '角色名称', templet: '#usernameTpl'}
 		    	,{field:'bz',  title: '备注'}
 		    ]]
 		    ,page: true

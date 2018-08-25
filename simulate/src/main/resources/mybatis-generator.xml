@@ -80,10 +80,16 @@
         <table tableName="BUSINESS_TYPE" domainObjectName="BusinessType" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table> -->
-        <table tableName="BUSINESS_DATA" domainObjectName="BusinessData" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <!-- <table tableName="BUSINESS_DATA" domainObjectName="BusinessData" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
         <table tableName="BUSINESS_DATA_DETAIL" domainObjectName="BusinessDataDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table> -->
+        <table tableName="QUOTA" domainObjectName="Quota" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="SUBJECT" domainObjectName="Subject" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
     </context>

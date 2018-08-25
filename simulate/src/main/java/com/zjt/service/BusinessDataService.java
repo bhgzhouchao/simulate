@@ -6,21 +6,21 @@ import java.util.Map;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zjt.entity.BusinessData;
+import com.zjt.model.BusinessDataVo;
 
 public interface BusinessDataService extends IService<BusinessData> {
 	Map<String, Object> getBusinessDataListSerch(Map<String,Object> params);
 
-	Map<String, Object> addOrUpdateBusinessData(BusinessData business);
+	Map<String, Object> addOrUpdateBusinessData(BusinessDataVo businessDataVo);
 
 	Map<String, Object> getBusinessTypeList();
-
-	Map<String, Object> deleteBusinessData(List<String> reserveOrderNoList);
 
 	Map<String, Object> selectBusinessById(String id);
 
 	ModelAndView toBusiness();
 
-	Map<String, Object> toBusinessDataAdd();
+	Map<String, Object> toBusinessDataAdd(String type, String id);
 
-	Map<String, Object> addOrUpdateBusinessData(Map<String, Object> params);
+	Map<String, Object> deleteBusinessDatas(List<String> ids);
+
 }

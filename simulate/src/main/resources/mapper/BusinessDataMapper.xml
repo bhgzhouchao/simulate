@@ -27,19 +27,67 @@
 			business_data.`month`,
 			dept.dept_name as dept,
 			business_data.total_price,
-			business_data.dept_examine,
-			business_data.dept_examine_date,
-			business_data.leader_examine,
-			business_data.leader_examine_date,
+			CASE  business_data.dept_examine 
+			WHEN '1' THEN '未提交' 
+			WHEN '2' THEN '待审批' 
+			WHEN '3' THEN '审批通过' 
+			ELSE '审批未通过' 
+			END AS dept_examine,
+			date_format(business_data.dept_examine_date,'%Y-%m-%d %H:%i:%S') AS dept_examine_date,
+			CASE  business_data.leader_examine
+			WHEN '1' THEN '未提交' 
+			WHEN '2' THEN '待审批' 
+			WHEN '3' THEN '审批通过' 
+			ELSE '审批未通过' 
+			END AS leader_examine,
+			date_format(business_data.leader_examine_date,'%Y-%m-%d %H:%i:%S') AS leader_examine_date,
 			business_data.submit_date,
 			business_data.create_user,
-			business_data.create_time
+			date_format(business_data.create_time,'%Y-%m-%d %H:%i:%S') AS create_time
 		FROM
 			business_data
-		LEFT JOIN dept ON business_data.dept = dept.dept_id
+		LEFT JOIN dept ON business_data.dept = dept.id
+		WHERE 1 = 1
 	 	<if test="month != null and month != ''">
 			AND business_data.month =  #{month}
 		</if>
+		<if test="dept != null and dept != ''">
+			AND business_data.dept =  #{dept}
+		</if>
 		limit ${pageNo},${pageSize}
 	</select>
+	
+	<insert id="insertBusinessData" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.zjt.entity.BusinessData">
+    INSERT INTO business_data (
+		month,
+		dept,
+		total_price,
+		dept_examine,
+		leader_examine,
+		dept_examine_date,
+		leader_examine_date,
+		submit_date,
+		create_user,
+		create_time,
+		update_user,
+		update_time,
+		remarks
+	)
+	VALUES
+		(#{month}
+		,#{dept}
+		,#{totalPrice}
+		,#{deptExamine}
+		,#{leaderExamine}
+		,#{deptExamineDate}
+		,#{leaderExamineDate}
+		,#{submitDate}
+		,#{createUser}
+		,#{createTime}
+		,#{updateUser}
+		,#{updateTime}
+		,#{remarks}
+		)
+ 	</insert>
+	
 </mapper>
