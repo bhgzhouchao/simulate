@@ -35,6 +35,7 @@ public class BusinessDataController {
 	@ResponseBody
     @RequiresPermissions(value = {"业务数据录入"})
     public Map<String,Object> getBusinessDataList(@RequestParam Map<String, Object> params) {
+		params.put("type", "businessData");
 		Map<String, Object> map = businessDataService.getBusinessDataListSerch(params);
     	return map;
     }

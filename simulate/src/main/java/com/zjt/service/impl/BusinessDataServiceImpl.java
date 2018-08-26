@@ -48,9 +48,17 @@ public class BusinessDataServiceImpl extends BaseService<BusinessData> implement
 		Tuser loginUser =(Tuser) subject.getSession().getAttribute("user");
 		params.put("pageNo", (pageNo-1) * pageSize);
 		params.put("pageSize", pageSize);
-		params.put("dept", loginUser.getDept());
 		params.put("month", params.get("month"));
-		List<BusinessData> list = businessDataMapper.getBusinessDataListSerch(params);
+		params.put("dept", loginUser.getDept());
+		String type = params.get("type").toString();
+		List<BusinessData> list = null;
+		if(type == "businessData" || type.equals("businessData") ) {
+			list = businessDataMapper.getBusinessDataListSerch(params);
+		} else if(type == "deptExamine" || type.equals("deptExamine")) {
+			list = businessDataMapper.getDeptExamineListSerch(params);
+		} else if(type == "leaderExamine" || type.equals("leaderExamine")) {
+			list = businessDataMapper.getLeaderExamineListSerch(params);
+		}
 		List<RelustBusiDataVo> listVo = new ArrayList<>();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		for(BusinessData data : list) {
@@ -194,6 +202,7 @@ public class BusinessDataServiceImpl extends BaseService<BusinessData> implement
 				if(businessDataVo.getType() == "2" || businessDataVo.getType().equals("2")) {
 					businessData.setSubmitDate(new Date());
 					businessData.setDeptExamine("2");
+					businessData.setLeaderExamine("1");
 				}
 				updateNotNull(businessData);
 				
@@ -238,6 +247,7 @@ public class BusinessDataServiceImpl extends BaseService<BusinessData> implement
 		if(businessDataVo.getType() == "2" || businessDataVo.getType().equals("2")) {
 			businessData.setSubmitDate(new Date());
 			businessData.setDeptExamine("2");
+			businessData.setLeaderExamine("1");
 		}
 		businessDataMapper.insertBusinessData(businessData);
 		return businessData.getId();
@@ -263,4 +273,72 @@ public class BusinessDataServiceImpl extends BaseService<BusinessData> implement
 		}
 		return true;
 	}
+
+
+	@Override
+	public Map<String, Object> examineBusinessData(List<String> ids, boolean flg, String type) {
+		Map<String,Object> returnMap =  new HashMap<String, Object>();
+		try {
+			//判断是否已经审批过
+			boolean ifExamine = false;
+			for(String id : ids) {
+				if(type == "deptExamine" || type.equals("deptExamine")) {
+					BusinessData data = businessDataMapper.selectByPrimaryKey(Integer.valueOf(id));
+					if(data.getDeptExamine() == "3" || "3".equals(data.getDeptExamine()) || data.getDeptExamine() == "4" || "4".equals(data.getDeptExamine())) {
+						ifExamine = true;
+						break;
+					}
+				} else {
+					BusinessData data = businessDataMapper.selectByPrimaryKey(Integer.valueOf(id));
+					if(data.getLeaderExamine() == "3" || "3".equals(data.getLeaderExamine()) || data.getLeaderExamine() == "4" || "4".equals(data.getLeaderExamine())) {
+						ifExamine = true;
+						break;
+					}
+				}
+			} 
+			if(!ifExamine) {
+				for(String id : ids) {
+					//审批通过
+					if(flg) {
+						BusinessData businessData = businessDataMapper.selectByPrimaryKey(Integer.valueOf(id));
+						if(type == "deptExamine" || type.equals("deptExamine")) {
+							businessData.setDeptExamine("3");
+							businessData.setLeaderExamine("2");
+							businessData.setDeptExamineDate(new Date());
+						} else {
+							businessData.setLeaderExamine("3");
+							businessData.setLeaderExamineDate(new Date());
+						}
+						updateNotNull(businessData);
+					} else {
+						//审批不通过
+						BusinessData businessData = businessDataMapper.selectByPrimaryKey(Integer.valueOf(id));
+						if(type == "deptExamine" || type.equals("deptExamine")) {
+							businessData.setDeptExamine("4");
+							businessData.setDeptExamineDate(new Date());
+						} else {
+							businessData.setDeptExamine("4");
+							businessData.setLeaderExamine("4");
+							businessData.setLeaderExamineDate(new Date());
+						}
+						updateNotNull(businessData);
+					}
+				}
+				returnMap.put("state", "success");
+				returnMap.put("mesg", "审批成功!");
+			} else {
+				returnMap.put("state", "fail");
+				returnMap.put("mesg", "数据已审批，不能重新审批!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			returnMap.put("state", "fail");
+			returnMap.put("mesg", "审批成功，请稍后再试!");
+			return returnMap; 
+		}
+		
+		return returnMap;
+	}
+
+
 }

@@ -23,4 +23,6 @@ public interface BusinessDataService extends IService<BusinessData> {
 
 	Map<String, Object> deleteBusinessDatas(List<String> ids);
 
+	Map<String, Object> examineBusinessData(List<String> ids, boolean b,String type);
+
 }
