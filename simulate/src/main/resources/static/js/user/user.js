@@ -16,11 +16,16 @@ $(function () {
         //自定义验证规则
         form.verify({
             userName: function(value) {
-                if(value.length < 5) {
-                    return '用户名至少得5个字符';
+            	if(value.trim().length == 0) {
+                    return '用户名不能为空！';
                 }
             },
-            password: [/(.+){6,12}$/, '密码必须6到12位'],
+            password: [/(.+){6,20}$/, '密码必须是6到20位字符！'],
+            trueName: function(value) {
+            	if(value.trim().length == 0) {
+                    return '真实姓名不能为空！';
+                }
+            },
             content: function(value) {
                 layedit.sync(editIndex);
             }
@@ -257,9 +262,11 @@ function pageInit() {
 	        }
 	      });
 	  });
+	
 	//重置
 	$('#reset1').on('click', function(){
-	    $('#searchUserName').val("")
+	    $('#searchUserName').val("");
+	    tableReload();
 	});
 	
     //添加按钮点击事件

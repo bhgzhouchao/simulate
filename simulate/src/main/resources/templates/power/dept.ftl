@@ -61,56 +61,6 @@
    </div>
 </div> 
  
-  
-  <!-- <div id="addDept" hidden="" class="layui-fluid" style="margin: 15px;">
-    <form class="layui-form"  id="addEditFrom">
-        <label hidden="true" id="editlabelid"></label>
-        <input id="editid" name="id" value="" hidden/>
-        <div class="layui-form-item">
-            <label class="layui-form-label">部门编号</label>
-            <div class="layui-input-block">
-                <input type="text" id="addDeptId" name="deptId"  placeholder="请输入部门编号" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">部门名称</label>
-            <div class="layui-input-block">
-            	<input type="text" id="addDeptName" name="deptName"  placeholder="请输入部门名称" class="layui-input">
-        	</div>
-        </div>
-        
-        <div class="layui-form-item">
-            <label class="layui-form-label">部门负责人</label>
-            <div class="layui-input-block">
-            	<select id="deptAct1" name="deptAct">
-				</select>
-        	</div>
-        </div>
-        
-        <div class="layui-form-item">
-            <label class="layui-form-label">分管院领导</label>
-            <div class="layui-input-block">
-            	<select id="deptLeader" name="deptLeader">
-				</select>
-        	</div>
-        </div>
-        
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">备注</label>
-            <div class="layui-input-block">
-			   <textarea id="remarks" name ="remarks" placeholder="请输入内容" class="layui-textarea"></textarea>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn" id="addDeptbtn" >保存</button>
-                <button id="reset" type="reset" class="layui-btn layui-btn-primary  layui-layer-close ">取消</button>
-            </div>
-        </div>
-    </form>
-</div> -->
-  
   <div id="addeditformdivid" hidden="" class="layui-fluid" style="margin: 15px;">
     <form class="layui-form" action="" id="addeditformid">
        <label hidden="true" id="editlabelid"></label>
@@ -118,13 +68,13 @@
         <div class="layui-form-item">
             <label class="layui-form-label">部门编号</label>
             <div class="layui-input-block">
-                <input type="text" id="addDeptId" name="deptId"  placeholder="请输入部门编号" class="layui-input" maxlength="30">
+                <input type="text" id="addDeptId" name="deptId"  placeholder="请输入部门编号"  required lay-verify="required"  class="layui-input" maxlength="30">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">部门名称</label>
             <div class="layui-input-block">
-            	<input type="text" id="addDeptName" name="deptName"  placeholder="请输入部门名称" class="layui-input" maxlength="100">
+            	<input type="text" id="addDeptName" name="deptName"  placeholder="请输入部门名称"  required lay-verify="required"  class="layui-input" maxlength="100">
         	</div>
         </div>
         
@@ -149,7 +99,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">备注</label>
             <div class="layui-input-block">
-			   <textarea id="remarks" name ="remarks" placeholder="请输入内容" class="layui-textarea" maxlength="85"></textarea>
+			   <textarea id="remarks" name ="remarks" placeholder="请输入内容" class="layui-textarea" maxlength="500"></textarea>
             </div>
         </div>
         <div class="layui-form-item">

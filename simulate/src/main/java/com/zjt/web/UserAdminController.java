@@ -136,7 +136,7 @@ public class UserAdminController {
                 List<Tuser> userlist = userService.selectByExample(tuserExample);
                 if (userlist != null && userlist.size() > 0) {
                     resultmap.put("state", "fail");
-                    resultmap.put("mesg", "当前用户名已存在");
+                    resultmap.put("mesg", "用户名已存在，请重新输入！");
                     return resultmap;
                 }
                 String tuserPwd = MyDES.encryptBasedDes(tuser.getPassword());

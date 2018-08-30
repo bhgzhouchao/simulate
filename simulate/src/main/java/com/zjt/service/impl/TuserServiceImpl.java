@@ -6,6 +6,7 @@ import com.zjt.entity.Tuser;
 import com.zjt.mapper.DeptMapper;
 import com.zjt.mapper.TroleMapper;
 import com.zjt.mapper.TuserMapper;
+import com.zjt.mapper.TuserroleMapper;
 import com.zjt.service.TuserService;
 
 import java.util.HashMap;
@@ -31,6 +32,9 @@ public class TuserServiceImpl   extends BaseService<Tuser> implements TuserServi
 	
 	@Autowired
 	private TroleMapper roleMapper;
+	
+	@Autowired
+	private TuserroleMapper userRoleMapper;
 	
 	
 	@Override
@@ -70,6 +74,7 @@ public class TuserServiceImpl   extends BaseService<Tuser> implements TuserServi
 		try {
 			for(String id : ids) {
 				userMapper.deleteByPrimaryKey(Integer.valueOf(id));
+				userRoleMapper.deleteUserRoleByUserId(Integer.valueOf(id));
 			}
 			returnMap.put("state", "success");
 			returnMap.put("mesg", "删除成功!");

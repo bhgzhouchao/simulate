@@ -35,7 +35,7 @@
 		t_user
 	LEFT JOIN dept ON t_user.dept = dept.id
 	WHERE
-		t_user.bz != 'admin'
+		t_user.user_name != 'admin'
 	<if test="userName != null and userName != ''">
 		AND user_name like '%${userName}%'
 	</if>

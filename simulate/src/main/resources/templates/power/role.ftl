@@ -79,18 +79,18 @@
         <div class="layui-form-item">
             <label class="layui-form-label">角色名称</label>
             <div class="layui-input-block">
-                <input type="text" id="name" name="name" lay-verify="name" autocomplete="off" placeholder="请输入角色名称" class="layui-input">
+                <input type="text" id="name" name="name" lay-verify="name" autocomplete="off" placeholder="请输入角色名称" class="layui-input" maxLength="30">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">备注</label>
             <div class="layui-input-block">
-                <input type="text" id="bz" name="bz" autocomplete="off" placeholder="请输入备注信息" class="layui-input">
+                <input type="text" id="bz" name="bz" autocomplete="off" placeholder="请输入备注信息" class="layui-input" maxLength="200">
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
+                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">保存</button>
                 <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>

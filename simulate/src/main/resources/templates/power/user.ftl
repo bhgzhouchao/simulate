@@ -67,15 +67,6 @@
    </div>
 </div> 
 
-
-
-
-
-
-
-
-
-
 <#--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓add↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
 <#--带有 class="layui-fluid" 的容器中，那么宽度将不会固定，而是 100% 适应-->
 <div id="addeditformdivid" hidden="" class="layui-fluid" style="margin: 15px;">
@@ -85,13 +76,13 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
-                <input type="text" id="userName" name="userName" lay-verify="userName" autocomplete="off" placeholder="请输入用户名" class="layui-input">
+                <input type="text" id="userName" name="userName" lay-verify="userName" autocomplete="off" placeholder="请输入用户名" class="layui-input" maxLength="30">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">密码</label>
             <div class="layui-input-block">
-            	<input type="password" id="password" name="password" lay-verify="password" autocomplete="off" placeholder="请输入密码" class="layui-input">
+            	<input type="password" id="password" name="password" lay-verify="password" autocomplete="off" placeholder="请输入密码" class="layui-input" maxLength="20">
         	</div>
         </div>
         <div class="layui-form-item">
@@ -105,18 +96,18 @@
         <div class="layui-form-item">
             <label class="layui-form-label">真实姓名</label>
             <div class="layui-input-block">
-                <input type="text" id="trueName" name="trueName" autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
+                <input type="text" id="trueName" name="trueName" lay-verify="trueName" autocomplete="off" placeholder="请输入真实姓名" class="layui-input" maxLength="50">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">备注信息</label>
             <div class="layui-input-block">
-                <input type="text" id="bz" name="bz" autocomplete="off" placeholder="请输入备注信息" class="layui-input">
+                <input type="text" id="bz" name="bz" autocomplete="off" placeholder="请输入备注信息" class="layui-input" maxLength="200">
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
+                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">保存</button>
                 <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>

@@ -331,7 +331,8 @@
    //重置
 	$('#reset1').on('click', function(){
 		$("#deptId").val("");
-	    $('#deptName').val("")
+	    $('#deptName').val("");
+	    tableReload();
 	});
      
      

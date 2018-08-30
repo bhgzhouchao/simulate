@@ -6,20 +6,19 @@ $(function () {
     var layerid;//当前弹层id;这个id可以定义多个，主要的目的是为了在回调函数关闭弹层时使用的
     layui.use(['layer','form','layedit','laydate'], function(){
         var layer = layui.layer,
-                layedit = layui.layedit,
-                laydate = layui.laydate,
-                form = layui.form;
+        layedit = layui.layedit,
+        laydate = layui.laydate,
+        form = layui.form;
 
         //创建一个编辑器
         var editIndex = layedit.build('LAY_demo_editor');
         //自定义验证规则
         form.verify({
             name: function(value) {
-                if(value.length < 5) {
-                    return '角色名至少得5个字符';
+                if(value.trim().length == 0) {
+                    return '角色名称不能为空！';
                 }
             },
-            password: [/(.+){6,12}$/, '密码必须6到12位'],
             content: function(value) {
                 layedit.sync(editIndex);
             }

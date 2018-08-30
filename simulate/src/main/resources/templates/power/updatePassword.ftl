@@ -10,7 +10,13 @@
             ,form = layui.form
             ,$ = layui.$
             ,laytpl = layui.laytpl
-            ,table = layui.table;
+            ,table = layui.table
+            ,layedit = layui.layedit;
+
+        //自定义验证规则
+        form.verify({
+            password: [/(.+){6,20}$/, '新密码必须是6到20位字符！'],
+        });
 
 
         //监听表单提交事件
@@ -66,13 +72,13 @@
         <div class="layui-form-item">
             <label class="layui-form-label">旧密码</label>
             <div class="layui-input-inline">
-                <input type="password" name="oldPassword" required lay-verify="required" placeholder="请输入旧密码" autocomplete="off" class="layui-input">
+                <input type="password" name="oldPassword" required lay-verify="required" placeholder="请输入旧密码" autocomplete="off" class="layui-input" maxLength="20">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">新密码</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                <input type="password" name="password" lay-verify="password"  placeholder="请输入新密码" autocomplete="off" class="layui-input" maxLength="20">
             </div>
         </div>
 

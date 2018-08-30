@@ -43,13 +43,13 @@ public class DeptServiceImpl extends BaseService<Dept> implements  DeptService {
 			//新增
 			if(dept.getId() == null || dept.getId().toString() == "") {
 				int deptIdCount= deptMapper.getDeptByDeptId(dept);
-				if(deptIdCount > 1 ) {
+				if(deptIdCount > 0 ) {
 					retuenMap.put("state", "fail");
 					retuenMap.put("mesg", "部门编号重复，请重新输入!");
 					return retuenMap;
 				}
 				int deptNameCount= deptMapper.getDeptByDeptName(dept);
-				if(deptNameCount > 1 ) {
+				if(deptNameCount > 0 ) {
 					retuenMap.put("state", "fail");
 					retuenMap.put("mesg", "部门名称重复，请重新输入!");
 					return retuenMap;
@@ -59,13 +59,13 @@ public class DeptServiceImpl extends BaseService<Dept> implements  DeptService {
 				retuenMap.put("mesg", "保存成功!");
 			} else {
 				int deptIdCount= deptMapper.getDeptByDeptId(dept);
-				if(deptIdCount > 1 ) {
+				if(deptIdCount > 0 ) {
 					retuenMap.put("state", "fail");
 					retuenMap.put("mesg", "部门编号重复，请重新输入!");
 					return retuenMap;
 				}
 				int deptNameCount= deptMapper.getDeptByDeptName(dept);
-				if(deptNameCount > 1 ) {
+				if(deptNameCount > 0 ) {
 					retuenMap.put("state", "fail");
 					retuenMap.put("mesg", "部门名称重复，请重新输入!");
 					return retuenMap;
