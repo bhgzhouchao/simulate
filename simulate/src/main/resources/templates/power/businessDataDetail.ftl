@@ -39,7 +39,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" style="text-align:left">月份</label>
             <div class="layui-input-block" style="width:30%">
-            	<input type="text" id="addMonth" name="month" class="layui-input" width="20%" value="${businessData.month!}">
+            	<input type="text" id="addMonth" name="month" class="layui-input" required lay-verify="required"  width="20%" value="${businessData.month!}">
         	</div>
         </div>
         <div class="layui-form-item" style="text-align:left">
@@ -56,7 +56,7 @@
 			   		<label class="layui-form-label" style="width:28%;text-align:left">${business.businessType!}</label>
 		            <label class="layui-form-label" style="width:28%;text-align:left">${business.businessName!}</label>
 		            <label class="layui-form-label" style="width:6%;text-align:left">${business.price!}</label>
-			        <input type="text" id="num" name="num"  placeholder="请输入数量" class="layui-input" maxlength="30" style="width:12%;text-align:left;float:left" lay-verify="num" value="${business.num!}">
+			        <input type="text" id="num" name="num"  placeholder="请输入数量" class="layui-input" maxlength="10" style="width:12%;text-align:left;float:left" lay-verify="num" value="${business.num!}">
 			      	<input type="text" id="id" name="id" value=${business.id!} hidden="true"/>
 			      </div>
 			</#list>
@@ -70,8 +70,8 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" id="submitBtn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
-                <button class="layui-btn" id="businessDataAdd">保存</button>
+                <button class="layui-btn" id="submitBtn" lay-submit="" lay-filter="addeditsubmitfilter">提交</button>
+                <button class="layui-btn" id="businessDataAdd" lay-submit="" lay-filter="savesubmitfilter">保存</button>
                 <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>

@@ -16,7 +16,7 @@ $(function () {
          var editIndex = layedit.build('LAY_demo_editor');
          //自定义验证规则
          form.verify({
-            
+        	 num: [/^[1-9]\d{0,9}$/, '数量只能输入正整数！'],
          });
 
          //监听提交
@@ -50,6 +50,65 @@ $(function () {
             	 "id":businessDataVo.id,
             	 "month":businessDataVo.month,
             	 "type":"2",
+            	 "remarks":businessDataVo.remarks,
+            	 "businessList":businessList
+             	}
+             
+             $.ajax({
+                 type: "POST",
+                 url:"busi/busiData/addOrUpdateBusinessData",
+                 contentType: "application/json",
+                 data:JSON.stringify(data),
+                 async: false,
+                 error: function(request) {
+                     layer.alert("与服务器连接失败/(ㄒoㄒ)/~~");
+                 },
+                 success: function(data) {
+                     if(data.state=='fail'){
+                         layer.alert(data.mesg);
+                     }
+                     if(data.state=='success'){
+                    	 layer.alert("提交成功！", function(){
+                    		 parent.layer.closeAll();
+                    		 tableReload();
+						});
+                     }
+                 }
+             });
+             return false;//防止表单提交后跳转
+         });
+         
+         //监听保存
+         form.on('submit(savesubmitfilter)', function(data) {
+
+             //为了防止form中的id值被重置后置空,将编辑的id存放在label中
+             $("#editid").val($("#editlabelid").html() );
+             $("#editlabelid").html("");
+             var baseData = $('#addeditformid').serializeArray();
+             var businessDataVo = {};
+             var businessList = [];
+             for(var i = 0; i < baseData.length; i ++ ){
+            	 var business = new Object();
+            	 if(i == 0){
+            		 businessDataVo.id = baseData[i].value;
+            	 } else if(i == 1){
+            		 businessDataVo.month = baseData[i].value;
+            	 } else if(i == (baseData.length - 1)){
+            		 businessDataVo.remarks = baseData[i].value;
+            	 } else if(i%2 == 0) {
+            		 business.num = baseData[i].value;
+            	 } else {
+            		 business.num = baseData[i-1].value;
+            		 business.id = baseData[i].value;
+            		 businessList.push(business);
+            	 }
+             }
+             businessDataVo.businessList = businessList;
+             
+             var data = {
+            	 "id":businessDataVo.id,
+            	 "month":businessDataVo.month,
+            	 "type":"1",
             	 "remarks":businessDataVo.remarks,
             	 "businessList":businessList
              	}
@@ -196,7 +255,7 @@ function tableReload(){
 		}); 
 	 });
 	 
-	 $("#businessDataAdd").click(function () {
+	 /*$("#businessDataAdd").click(function () {
 		//为了防止form中的id值被重置后置空,将编辑的id存放在label中
          $("#editid").val($("#editlabelid").html() );
          $("#editlabelid").html("");
@@ -252,7 +311,7 @@ function tableReload(){
              }
          });
          return false;//防止表单提交后跳转
-	 });
+	 });*/
 	 
 	 $("#delete").click(function () {
 	    	var selectData = layui.table.checkStatus('businessDataTable');
