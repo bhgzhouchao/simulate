@@ -13,4 +13,6 @@ public interface BusinessMapper extends MyMapper<Business> {
 	List<Business> getBusinessListSerch(Map<String, Object> params);
 
 	List<Business> selectBusinessList(@Param(value="deptId") String dept);
+
+	int getBusinessByDeptName(Business business);
 }

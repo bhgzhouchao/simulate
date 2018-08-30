@@ -55,5 +55,17 @@
 		AND business.dept_id =  #{deptId}
 	</if>
   </select>
-
+	
+	
+  <select id="getBusinessByDeptName" parameterType="com.zjt.entity.Business" resultType="java.lang.Integer">
+ 	 select count(1) from business
+ 	 where 1 = 1
+ 	<if test="businessId != null and businessId != ''">
+		AND business_id = #{businessId}
+	</if>  
+	<if test="id != null and id != ''">
+		AND id != #{id}
+	</if> 		
+  </select>
+	
 </mapper>

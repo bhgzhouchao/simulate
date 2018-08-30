@@ -11,24 +11,21 @@
          $ = layui.$,
          form = layui.form;
 
-         //创建一个编辑器
-         var editIndex = layedit.build('LAY_demo_editor');
          //自定义验证规则
          form.verify({
-             userName: function(value) {
-                 if(value.length < 5) {
-                     return '用户名至少得5个字符';
-                 }
-             },
-             password: [/(.+){6,12}$/, '密码必须6到12位'],
-             content: function(value) {
-                 layedit.sync(editIndex);
-             }
+             //price: [/[1-9]\d{0,5}\.\d$|^[1-9]\d{0,5}\.\d{1}$|^[1-9]\d{0,5}\.\d{2}$|^[1-9]\d{0,5}$|^[0]\.\d{1}$|^[0]\.\d{2}$/, '单价只能是数字，且整数部分长度不超过6位']
          });
 
          //监听提交
          form.on('submit(addeditsubmitfilter)', function(data) {
-
+        	 
+        	 var price  =$("#price").val();
+        	 var pattern = /^[1-9]\d{0,4}\.\d$|^[1-9]\d{0,4}\.\d{1}$|^[1-9]\d{0,5}\.\d{2}$|^[1-9]\d{0,5}$|^[0]\.\d{1}$|^[0]\.\d{2}$/;
+             if (!pattern.test(price)) {
+                 layer.alert("单价只能是数字，且整数部分长度不超过6位");
+                 return false;
+             }
+        	 
              //为了防止form中的id值被重置后置空,将编辑的id存放在label中
              $("#editid").val($("#editlabelid").html() );
              $("#editlabelid").html("");
@@ -58,6 +55,28 @@
      });
      
  });
+ 
+ 
+ /**
+  * 单价输入框输入限制
+  */
+ function clearPrice(obj){ 
+ 	//清除“数字”和“.”以外的字符  
+     obj.value = obj.value.replace(/[^\d.]/g,"");  
+     //只保留第一个. 清除多余的  
+     obj.value = obj.value.replace(/\.{2,}/g,"."); 
+     obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$","."); 
+     //数字和点，且以点结尾的 eg:123. 替换为123.0
+     obj.value = obj.value.replace(/(\d+)\.$/g,"$1.0"); 
+     //有小数点且首位是0的数字 0123.
+     obj.value = obj.value.replace(/^[0](\d+)\.(\d)/g,"$1.$2"); 
+     //只能输入一位小数 
+     obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d{2}).*$/,'$1$2.$3');
+     //以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的数字
+     if(obj.value.indexOf(".")< 0 && obj.value !=""){
+         obj.value= parseFloat((obj.value)).toFixed(1); 
+     } 
+ } 
  
  
  function toEdit(data){
@@ -167,6 +186,11 @@
 	       });
 	   });
 	
+	 
+	//单价输入框焦点失去事件
+	$("#price").blur(function(){
+		clearPrice(this)
+	})
 	 
 
      //添加按钮点击事件

@@ -55,22 +55,22 @@ public class BusinessServiceImpl extends BaseService<Business> implements  Busin
 		try {
 			//新增
 			if(business.getId() == null || business.getId().toString() == "") {
-				/*int deptNameCount= deptMapper.getDeptByDeptName(dept);
-				if(deptNameCount > 1 ) {
+				int deptNameCount= businessMapper.getBusinessByDeptName(business);
+				if(deptNameCount > 0 ) {
 					retuenMap.put("state", "fail");
-					retuenMap.put("mesg", "部门名称重复，请重新输入!");
+					retuenMap.put("mesg", "业务编号重复，请重新输入!");
 					return retuenMap;
-				}*/
+				}
 				saveNotNull(business);
 				retuenMap.put("state", "success");
 				retuenMap.put("mesg", "保存成功!");
 			} else {
-				/*int deptNameCount= deptMapper.getDeptByDeptName(dept);
-				if(deptNameCount > 1 ) {
+				int deptNameCount= businessMapper.getBusinessByDeptName(business);
+				if(deptNameCount > 0 ) {
 					retuenMap.put("state", "fail");
-					retuenMap.put("mesg", "部门名称重复，请重新输入!");
+					retuenMap.put("mesg", "业务编号重复，请重新输入!");
 					return retuenMap;
-				}*/
+				}
 				updateNotNull(business);
 				retuenMap.put("state", "success");
 				retuenMap.put("mesg", "保存成功!");

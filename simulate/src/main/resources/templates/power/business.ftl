@@ -49,7 +49,7 @@
             <div class="layui-inline">
 		       <label class="layui-form-label">业务名称</label>
 		       <div class="layui-input-block">
-		         <input type="text" id="businessName" placeholder="请输入" autocomplete="off" class="layui-input">
+		         <input type="text" id="businessName" placeholder="请输入" autocomplete="off" class="layui-input" maxlength="100">
 		       </div>
 		     </div>
       		<div class="layui-inline">
@@ -76,13 +76,13 @@
         <div class="layui-form-item">
             <label class="layui-form-label">业务编号</label>
             <div class="layui-input-block">
-                <input type="text" id="addBusinessId" name="businessId"  placeholder="请输入业务编号" class="layui-input" maxlength="30">
+                <input type="text" id="addBusinessId" name="businessId"  placeholder="请输入业务编号" required lay-verify="required" class="layui-input" maxlength="30">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">业务名称</label>
             <div class="layui-input-block">
-            	<input type="text" id="addBusinessName" name="businessName"  placeholder="请输入业务名称" class="layui-input" maxlength="100">
+            	<input type="text" id="addBusinessName" name="businessName"  placeholder="请输入业务名称" required lay-verify="required" class="layui-input" maxlength="100">
         	</div>
         </div>
         
@@ -107,7 +107,7 @@
          <div class="layui-form-item">
             <label class="layui-form-label">单价</label>
             <div class="layui-input-block">
-            	<input type="text" id="price" name="price"  placeholder="请输入单价" class="layui-input" maxlength="100">
+            	<input type="text" id="price" name="price"  placeholder="请输入单价" class="layui-input" required lay-verify="required"  lay-verify="price" maxlength="9">
         	</div>
         </div>
         
@@ -119,7 +119,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
+                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">保存</button>
                 <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
