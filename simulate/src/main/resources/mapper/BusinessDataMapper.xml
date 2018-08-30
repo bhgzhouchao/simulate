@@ -159,5 +159,17 @@
 		limit ${pageNo},${pageSize}
 	</select>
  	
+ 	
+ 	<select id="selectBusinesData" resultMap="BaseResultMap">  
+	SELECT
+		sum(total_price) AS total_price
+	FROM
+		business_data
+	WHERE  dept_examine = '3' AND leader_examine = '3'
+	AND	`month` IN  
+	 <foreach item="months" index="index" collection="list" open="(" separator="," close=")">  
+	  #{months}  
+	 </foreach>  
+  </select>  
 	
 </mapper>

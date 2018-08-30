@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zjt.entity.Business;
-import com.zjt.entity.BusinessType;
-import com.zjt.entity.Dept;
 import com.zjt.entity.Quota;
 import com.zjt.entity.Subject;
 import com.zjt.mapper.QuotaMapper;

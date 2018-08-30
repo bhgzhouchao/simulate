@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjt.mapper.BaseDataMapper">
+  <resultMap id="BaseResultMap" type="com.zjt.entity.BaseData">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="month" jdbcType="VARCHAR" property="month" />
+    <result column="num_people" jdbcType="INTEGER" property="numPeople" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  
+  <select id="selectBaseDataByMonth" resultMap="BaseResultMap">  
+	SELECT
+		sum(num_people) AS num_people,
+		sum(amount) AS amount
+	FROM
+		base_data
+	WHERE
+		`month` IN  
+	<foreach item="months" index="index" collection="months" open="(" separator="," close=")">  
+  		#{months}  
+ 	</foreach> 
+  </select>  
+  
+</mapper>

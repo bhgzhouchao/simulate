@@ -10,4 +10,8 @@ import com.zjt.util.MyMapper;
 public interface QuotaMapper extends MyMapper<Quota> {
 
 	List<Business> getQuotaListSerch(Map<String, Object> params);
+
+	int selectIndexByYear(int id, int year);
+
+	Quota selectIndexByYear(Quota quota);
 }

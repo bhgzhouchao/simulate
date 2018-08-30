@@ -15,4 +15,6 @@ public interface BusinessDataMapper extends MyMapper<BusinessData> {
 	List<BusinessData> getDeptExamineListSerch(Map<String, Object> params);
 
 	List<BusinessData> getLeaderExamineListSerch(Map<String, Object> params);
+
+	BusinessData selectBusinesData(List<String> months);
 }

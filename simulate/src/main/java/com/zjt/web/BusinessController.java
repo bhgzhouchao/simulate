@@ -25,7 +25,7 @@ public class BusinessController {
 	
 	
 	@RequestMapping("/toBusi")
-    @RequiresPermissions(value = {"业务管理"})
+    @RequiresPermissions(value = {"业务数据管理"})
     public ModelAndView toBusiness() {
 		ModelAndView modelView = businessService.toBusiness();
         return modelView;
@@ -34,7 +34,7 @@ public class BusinessController {
 	
 	@RequestMapping("/busiList")
 	@ResponseBody
-    @RequiresPermissions(value = {"业务管理"})
+    @RequiresPermissions(value = {"业务数据管理"})
     public Map<String,Object> getBusinessList(@RequestParam Map<String, Object> params,HttpServletRequest request) {
 		Map<String, Object> map = businessService.getBusinessListSerch(params);
     	return map;
@@ -42,7 +42,7 @@ public class BusinessController {
 	
 	@ResponseBody
     @RequestMapping(value = "/addOrUpdateBusi")
-    @RequiresPermissions(value = {"业务管理"})
+    @RequiresPermissions(value = {"业务数据管理"})
     public Map<String, Object> addOrUpdateBusiness(Business Business) {
 		Map<String, Object> map = businessService.addOrUpdateBusiness(Business);
     	return map;
@@ -50,7 +50,7 @@ public class BusinessController {
 	
 	@RequestMapping("/getBusiTypeList")
 	@ResponseBody
-    @RequiresPermissions(value = {"业务管理"})
+    @RequiresPermissions(value = {"业务数据管理"})
     public Map<String,Object> getBusinessTypeList() {
 		Map<String, Object> map = businessService.getBusinessTypeList();
     	return map;
@@ -58,7 +58,7 @@ public class BusinessController {
 	
 	@ResponseBody
     @RequestMapping(value = "/deleteBusis")
-    @RequiresPermissions(value = {"业务管理"})
+    @RequiresPermissions(value = {"业务数据管理"})
     public Map<String, Object> deleBusinesss(@RequestParam List<String> Ids) {
 		Map<String, Object> map = businessService.deleteBusiness(Ids);
 		return map;
@@ -66,7 +66,7 @@ public class BusinessController {
 	
 	@ResponseBody
     @RequestMapping(value = "/selectBusiById")
-    @RequiresPermissions(value = {"业务管理"})
+    @RequiresPermissions(value = {"业务数据管理"})
     public Map<String, Object> selectBusinessById(@RequestParam String id) {
 		Map<String, Object> map = businessService.selectBusinessById(id);
 		return map;

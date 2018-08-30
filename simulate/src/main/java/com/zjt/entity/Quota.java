@@ -1,5 +1,7 @@
 package com.zjt.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.*;
 
 public class Quota {
@@ -12,7 +14,7 @@ public class Quota {
     private String subject;
 
     @Column(name = "subject_value")
-    private String subjectValue;
+    private BigDecimal subjectValue;
 
     private String remarks;
 
@@ -58,21 +60,15 @@ public class Quota {
         this.subject = subject == null ? null : subject.trim();
     }
 
-    /**
-     * @return subject_value
-     */
-    public String getSubjectValue() {
-        return subjectValue;
-    }
+    public BigDecimal getSubjectValue() {
+		return subjectValue;
+	}
 
-    /**
-     * @param subjectValue
-     */
-    public void setSubjectValue(String subjectValue) {
-        this.subjectValue = subjectValue == null ? null : subjectValue.trim();
-    }
+	public void setSubjectValue(BigDecimal subjectValue) {
+		this.subjectValue = subjectValue;
+	}
 
-    /**
+	/**
      * @return remarks
      */
     public String getRemarks() {

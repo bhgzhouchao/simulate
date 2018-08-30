@@ -9,7 +9,10 @@ public class Subject {
 
     @Column(name = "subject_name")
     private String subjectName;
-
+    
+    @Column(name = "subject_type")
+    private String subjectType;
+    
     /**
      * @return id
      */
@@ -37,4 +40,14 @@ public class Subject {
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName == null ? null : subjectName.trim();
     }
+
+	public String getSubjectType() {
+		return subjectType;
+	}
+
+	public void setSubjectType(String subjectType) {
+		this.subjectType = subjectType;
+	}
+    
+    
 }

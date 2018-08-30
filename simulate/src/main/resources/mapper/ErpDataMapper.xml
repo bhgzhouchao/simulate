@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjt.mapper.ErpDataMapper">
+  <resultMap id="BaseResultMap" type="com.zjt.entity.ErpData">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="subject_id" jdbcType="VARCHAR" property="subjectId" />
+    <result column="subject_name" jdbcType="VARCHAR" property="subjectName" />
+    <result column="month" jdbcType="VARCHAR" property="month" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  
+  <select id="selectErpDataMonth" resultMap="BaseResultMap" parameterType="java.util.HashMap">  
+	SELECT
+		sum(amount) AS amount
+	FROM
+		erp_data
+	WHERE erp_data.subject_id = #{subjectId}
+	and `month` IN  
+  	<foreach item="months" index="index" collection="months" open="(" separator="," close=")">  
+  		#{months}  
+ 	</foreach> 
+   </select>  
+</mapper>

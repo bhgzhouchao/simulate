@@ -8,7 +8,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="year" jdbcType="VARCHAR" property="year" />
     <result column="subject" jdbcType="VARCHAR" property="subject" />
-    <result column="subject_value" jdbcType="VARCHAR" property="subjectValue" />
+    <result column="subject_value" jdbcType="DECIMAL" property="subjectValue" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
   
@@ -30,6 +30,19 @@
 		AND quota.year = #{year}
 	</if>
 	limit ${pageNo},${pageSize}
+  </select>
+  
+  <select id="selectIndexByYear" parameterType="com.zjt.entity.Quota" resultMap="BaseResultMap">
+ 	 SELECT
+		quota.id,
+		quota.year,
+		subject.subject_name AS subject,
+		quota.subject_value,
+		quota.remarks
+	FROM
+		quota
+	LEFT JOIN subject  ON quota.subject = subject.id
+ 	WHERE quota.subject = #{subject} AND quota.year = #{year}
   </select>
   
 </mapper>
