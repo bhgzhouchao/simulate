@@ -25,4 +25,31 @@
  	</foreach> 
   </select>  
   
+   <select id="getBaseDataById" parameterType="com.zjt.entity.BaseData" resultType="java.lang.Integer">
+ 	 select count(1) from base_data
+ 	 where 1 = 1
+	<if test="month != null and month != ''">
+		AND month = #{month}
+	</if> 
+	<if test="id != null and id != ''">
+		AND id != #{id}
+	</if> 		
+  </select>
+  
+  <select id="getBaseDataListSerch" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+	SELECT
+		id,
+		month,
+		num_people,
+		amount,
+		remarks
+	FROM
+		base_data
+	WHERE 1 = 1
+		<if test="month != null and month != ''">
+		AND month = #{month}
+		</if> 
+	limit ${pageNo},${pageSize}
+  </select>
+  
 </mapper>

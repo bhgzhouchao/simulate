@@ -16,7 +16,7 @@ $(function () {
          var editIndex = layedit.build('LAY_demo_editor');
          //自定义验证规则
          form.verify({
-        	 num: [/^[1-9]\d{0,9}$/, '数量只能输入正整数！'],
+        	 num: [/^[1-9]\d{0,9}$/, '数量只能输入正整数！']
          });
 
          //监听提交
