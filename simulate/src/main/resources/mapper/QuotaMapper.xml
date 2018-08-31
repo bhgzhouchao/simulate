@@ -45,4 +45,15 @@
  	WHERE quota.subject = #{subject} AND quota.year = #{year}
   </select>
   
+  <select id="getQuotaById" parameterType="com.zjt.entity.Quota" resultType="java.lang.Integer">
+ 	 select count(1) from quota
+ 	 where 1 = 1
+	<if test="year != null and year != ''">
+		AND year = #{year}
+	</if> 
+	<if test="id != null and id != ''">
+		AND id != #{id}
+	</if> 		
+  </select>
+  
 </mapper>

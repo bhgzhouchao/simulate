@@ -65,7 +65,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" style="text-align:left">备注</label>
             <div class="layui-input-block">
-			   <textarea id="remarks" name ="remarks" placeholder="请输入内容" class="layui-textarea" maxlength="85" >${businessData.remarks!}</textarea>
+			   <textarea id="remarks" name ="remarks" placeholder="请输入内容" class="layui-textarea" maxlength="200" >${businessData.remarks!}</textarea>
             </div>
         </div>
         <div class="layui-form-item">

@@ -62,7 +62,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" >年份</label>
             <div class="layui-input-block" >
-            	<input type="text" id="year" name="year" class="layui-input">
+            	<input type="text" id="year" name="year" class="layui-input" required lay-verify="required">
         	</div>
         </div>
        
@@ -78,7 +78,7 @@
          <div class="layui-form-item">
             <label class="layui-form-label">金额</label>
             <div class="layui-input-block">
-            	<input type="text" id="subjectValue" name="subjectValue"  placeholder="请输入成本项目金额" class="layui-input" maxlength="10">
+            	<input type="text" id="subjectValue" name="subjectValue"  placeholder="请输入成本项目金额" required lay-verify="required" class="layui-input" maxlength="9">
         	</div>
         </div>
         
@@ -90,7 +90,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">立即提交</button>
+                <button class="layui-btn" lay-submit="" lay-filter="addeditsubmitfilter">保存</button>
                 <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>

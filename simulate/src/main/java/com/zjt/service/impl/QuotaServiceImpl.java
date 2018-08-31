@@ -42,6 +42,13 @@ public class QuotaServiceImpl extends BaseService<Quota> implements QuotaService
 	public Map<String, Object> addOrUpdateQuota(Quota quota) {
 		Map<String,Object> retuenMap =new HashMap<String, Object>();
 		try {
+			//判断相同的年月是否数据重复
+			int quotaIdCount= quotaMapper.getQuotaById(quota);
+			if(quotaIdCount > 0 ) {
+				retuenMap.put("state", "fail");
+				retuenMap.put("mesg", "当前成本项目"+quota.getYear() +"年已存在数据，请重新输入!");
+				return retuenMap;
+			}
 			//新增
 			if(quota.getId() == null || quota.getId().toString() == "") {
 				saveNotNull(quota);

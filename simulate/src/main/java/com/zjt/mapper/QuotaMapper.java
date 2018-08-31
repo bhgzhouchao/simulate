@@ -14,4 +14,6 @@ public interface QuotaMapper extends MyMapper<Quota> {
 	int selectIndexByYear(int id, int year);
 
 	Quota selectIndexByYear(Quota quota);
+
+	int getQuotaById(Quota quota);
 }
