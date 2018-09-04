@@ -36,7 +36,7 @@
 	      	<div class="layui-inline">
 	      	 <label class="layui-form-label">月份</label>
 	       		<div class="layui-input-block">
-	         		<input type="text" id="month" class="layui-input">
+	         		<input type="text" id="month" class="layui-input" autocomplete="off" disableautocomplete>
 	      		</div>
 	      	</div> 
       		<div class="layui-inline">
@@ -62,21 +62,21 @@
          <div class="layui-form-item">
             <label class="layui-form-label" >月份</label>
             <div class="layui-input-block" >
-            	<input type="text" id="addMonth" name="month" class="layui-input" required lay-verify="required"  >
+            	<input type="text" id="addMonth" name="month" class="layui-input" required lay-verify="required"  autocomplete="off" disableautocomplete>
         	</div>
         </div>
         
         <div class="layui-form-item">
             <label class="layui-form-label">人数</label>
             <div class="layui-input-block">
-            	<input type="text" id="numPeople" name="numPeople"  placeholder="请输入人数" class="layui-input" required lay-verify="required"  lay-verify="numPeople" maxlength="10">
+            	<input type="text" id="numPeople" name="numPeople"  placeholder="请输入人数" class="layui-input" required lay-verify="required"  lay-verify="numPeople" maxlength="10" autocomplete="off" disableautocomplete>
         	</div>
         </div>
         
          <div class="layui-form-item">
             <label class="layui-form-label">税金</label>
             <div class="layui-input-block">
-            	<input type="text" id="amount" name="amount"  placeholder="请输入税金" class="layui-input" required lay-verify="required"   maxlength="9">
+            	<input type="text" id="amount" name="amount"  placeholder="请输入税金" class="layui-input" required lay-verify="required"   maxlength="9" autocomplete="off" disableautocomplete>
         	</div>
         </div>
         

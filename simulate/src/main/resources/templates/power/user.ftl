@@ -76,13 +76,13 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
-                <input type="text" id="userName" name="userName" lay-verify="userName" autocomplete="off" placeholder="请输入用户名" class="layui-input" maxLength="30">
+                <input type="text" id="userName" name="userName" lay-verify="userName" autocomplete="off" disableautocomplete placeholder="请输入用户名" class="layui-input" maxLength="30">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">密码</label>
             <div class="layui-input-block">
-            	<input type="password" id="password" name="password" lay-verify="password" autocomplete="off" placeholder="请输入密码" class="layui-input" maxLength="20">
+            	<input type="password" id="password" name="password" lay-verify="password" autocomplete="off" disableautocomplete placeholder="请输入密码" class="layui-input" maxLength="20">
         	</div>
         </div>
         <div class="layui-form-item">
@@ -130,7 +130,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="editroleformsubmit">立即提交</button>
+                <button class="layui-btn" lay-submit="" lay-filter="editroleformsubmit">保存</button>
                 <button id="editroleformreset" type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>

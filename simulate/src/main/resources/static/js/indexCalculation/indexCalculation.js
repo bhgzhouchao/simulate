@@ -15,6 +15,7 @@ function init(){
 		    ,skin: 'row'
 		    ,size: 'sm'
 		    ,even: true
+		    ,height : 'full-150'
 		  });
 	});
 	
@@ -98,7 +99,7 @@ function initTableCols(type){
 			 ]]
 		} else if(remonth == 2){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -109,7 +110,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 3){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -122,7 +123,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 4){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -137,7 +138,7 @@ function initTableCols(type){
 			]]
 		} else if(remonth == 5){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -154,7 +155,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 6){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -173,7 +174,7 @@ function initTableCols(type){
 			]]
 		} else if(remonth == 7){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -194,7 +195,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 8){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -217,7 +218,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 9){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -242,7 +243,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 10){
 			cols = [[
-				{field: 'subject', title: '',width:'12%'}
+				{field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -269,7 +270,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 11){
 			cols = [[
-				  {field: 'subject', title: '',width:'12%'}
+				  {field: 'subject', title: '',width:'11%'}
 				    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 				    ,{field: 'month1', title: month1,width:'9%'}
 				    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -298,7 +299,7 @@ function initTableCols(type){
 				 ]]
 		} else if(remonth == 12){
 			cols = [[
-			     {field: 'subject', title: '',width:'12%'}
+			     {field: 'subject', title: '',width:'11%'}
 			    ,{field: 'oldMonth1', title: oldMonth1,width:'9%'}
 			    ,{field: 'month1', title: month1,width:'9%'}
 			    ,{field: 'oldMonth2', title: oldMonth2,width:'9%'}
@@ -333,7 +334,7 @@ function initTableCols(type){
 		//第一季度
 		if(month == 0 || month == 1 || month == 2){
 			cols = [[
-			     {field: 'subject', title: '',width:'12%'}
+			     {field: 'subject', title: '',width:'11%'}
 			     ,{field: 'lastsSeason1', title: lastsSeason1}
 			    ,{field: 'season1', title: season1}
 			    ,{field: 'oldYearAll', title: oldYearAll,width:'9%'}
@@ -342,7 +343,7 @@ function initTableCols(type){
 				 ]]
 		} else if(month == 3 || month == 4 || month == 5){
 			cols = [[
-			     {field: 'subject', title: '',width:'12%'}
+			     {field: 'subject', title: '',width:'11%'}
 			     ,{field: 'season1', title: season1}
 			    ,{field: 'lastsSeason1', title: lastsSeason1}
 			    ,{field: 'season2', title: season2}
@@ -353,7 +354,7 @@ function initTableCols(type){
 				 ]]
 		} else if(month == 6 || month == 7 || month == 8){
 			cols = [[
-			     {field: 'subject', title: '',width:'12%'}
+			     {field: 'subject', title: '',width:'11%'}
 			    ,{field: 'lastsSeason1', title: lastsSeason1}
 			    ,{field: 'season1', title: season1}
 			    ,{field: 'lastsSeason2', title: lastsSeason2}
@@ -366,7 +367,7 @@ function initTableCols(type){
 				 ]]
 		} else if(month == 9 || month == 10 || month == 11){
 			cols = [[
-			     {field: 'subject', title: '',width:'12%'}
+			     {field: 'subject', title: '',width:'11%'}
 			     ,{field: 'lastsSeason1', title: lastsSeason1}
 			    ,{field: 'season1', title: season1}
 			    ,{field: 'lastsSeason2', title: lastsSeason2}

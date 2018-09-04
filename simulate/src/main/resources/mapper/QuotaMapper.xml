@@ -51,6 +51,9 @@
 	<if test="year != null and year != ''">
 		AND year = #{year}
 	</if> 
+	<if test="subject != null and subject != ''">
+		AND subject = #{subject}
+	</if> 
 	<if test="id != null and id != ''">
 		AND id != #{id}
 	</if> 		

@@ -93,7 +93,7 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 		List<IndexVo> oldMonth12 = new ArrayList<IndexVo>();
 		
 		//共通
-		List<IndexVo> yearAll = selectIndex(year,getMonthList(lastYear,12),subjectList);
+		List<IndexVo> yearAll = selectIndex(year,getMonthList(year,12),subjectList);
 		List<IndexVo> oldYearAll = selectIndex(lastYear,getMonthList(lastYear,12),subjectList);
 		List<IndexVo> index = selectYearIndex(year, subjectList);
         
@@ -573,7 +573,7 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 			cost = cost.subtract(indexList.get(4).getIndex());
 			cost = cost.subtract(indexList.get(8).getIndex());
 			cost = cost.divide(indexList.get(71).getIndex(),2,BigDecimal.ROUND_HALF_UP);
-			indexList.get(73).setIndex(cost);
+			indexList.get(74).setIndex(cost);
 		}
 		//投入产出比计算
 		List<IndexVo> selectInputOutputRate = selectInputOutputRate(year, months, subjectList);
@@ -827,7 +827,7 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 	public List<String> getMonthList(int year, int month){
 		List<String> months = new ArrayList<>();
 		for(int i = 1; i <= month; i++) {
-			if(month > 9) {
+			if(i > 9) {
 				months.add(String.valueOf(year)+ "-" + String.valueOf(i));
 			} else {
 				months.add(String.valueOf(year)+ "-0" + String.valueOf(i));

@@ -76,13 +76,13 @@
         <div class="layui-form-item">
             <label class="layui-form-label">业务编号</label>
             <div class="layui-input-block">
-                <input type="text" id="addBusinessId" name="businessId"  placeholder="请输入业务编号" required lay-verify="required" class="layui-input" maxlength="30">
+                <input type="text" id="addBusinessId" name="businessId"  placeholder="请输入业务编号" required lay-verify="required" class="layui-input" maxlength="30" autocomplete="off" disableautocomplete>
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">业务名称</label>
             <div class="layui-input-block">
-            	<input type="text" id="addBusinessName" name="businessName"  placeholder="请输入业务名称" required lay-verify="required" class="layui-input" maxlength="100">
+            	<input type="text" id="addBusinessName" name="businessName"  placeholder="请输入业务名称" required lay-verify="required" class="layui-input" maxlength="100" autocomplete="off" disableautocomplete>
         	</div>
         </div>
         
@@ -107,7 +107,7 @@
          <div class="layui-form-item">
             <label class="layui-form-label">单价</label>
             <div class="layui-input-block">
-            	<input type="text" id="price" name="price"  placeholder="请输入单价" class="layui-input" required lay-verify="required"  lay-verify="price" maxlength="9">
+            	<input type="text" id="price" name="price"  placeholder="请输入单价" class="layui-input" required lay-verify="required"  lay-verify="price" maxlength="9" autocomplete="off" disableautocomplete>
         	</div>
         </div>
         

@@ -259,11 +259,11 @@
 		    ,method:'post'
 		    ,cols: [[
 		    	 {type:'checkbox'}
-		    	,{field:'deptId',  title: '部门编号', templet: '#usernameTpl',width:100}
+		    	,{field:'deptId',  title: '部门编号', templet: '#usernameTpl',width:200}
 		    	,{field:'deptName',  title: '部门名称'}
-		    	,{field:'deptAct',  title: '部门负责人'}
+		    	//,{field:'deptAct',  title: '部门负责人'}
 		    	//,{field:'deptLeader',  title: '分管院领导'}
-		    	,{field:'remarks',  title: '备注',width:200}
+		    	,{field:'remarks',  title: '备注'}
 		    ]]
 		    ,page: true
 		    ,skin: 'row'

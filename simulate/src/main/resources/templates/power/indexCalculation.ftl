@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>指标测算表</title>
 
-<!-- <link href="${basePath!}/static/css/comm.css" type="text/css" media="screen" rel="stylesheet"/>
-<link href="${basePath!}/static/css/admin.css" type="text/css" media="screen" rel="stylesheet"/> -->
+<link href="${basePath!}/static/css/comm.css" type="text/css" media="screen" rel="stylesheet"/>
+<link href="${basePath!}/static/css/admin.css" type="text/css" media="screen" rel="stylesheet"/> 
 
 <!-- jqGrid组件基础样式包-必要 -->
 <link href="${basePath!}/static/jqgrid/css/ui.jqgrid.css" type="text/css" media="screen" rel="stylesheet"/>

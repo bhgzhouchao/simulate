@@ -68,18 +68,18 @@
         <div class="layui-form-item">
             <label class="layui-form-label">部门编号</label>
             <div class="layui-input-block">
-                <input type="text" id="addDeptId" name="deptId"  placeholder="请输入部门编号"  required lay-verify="required"  class="layui-input" maxlength="30">
+                <input type="text" id="addDeptId" name="deptId"  placeholder="请输入部门编号"  required lay-verify="required"  class="layui-input" maxlength="30" autocomplete="off" disableautocomplete>
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">部门名称</label>
             <div class="layui-input-block">
-            	<input type="text" id="addDeptName" name="deptName"  placeholder="请输入部门名称"  required lay-verify="required"  class="layui-input" maxlength="100">
+            	<input type="text" id="addDeptName" name="deptName"  placeholder="请输入部门名称"  required lay-verify="required"  class="layui-input" maxlength="100" autocomplete="off" disableautocomplete>
         	</div>
         </div>
         
-        <div class="layui-form-item">
-            <label class="layui-form-label">部门负责人</label>
+        <div class="layui-form-item" hidden="">
+            <label class="layui-form-label" >部门负责人</label>
             <div class="layui-input-block">
             	<select id="deptAct" name="deptAct">
             	

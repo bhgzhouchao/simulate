@@ -36,7 +36,7 @@
 	      	<div class="layui-inline">
 	      	 <label class="layui-form-label">月份</label>
 	       		<div class="layui-input-block">
-	         		<input type="text" id="month" class="layui-input">
+	         		<input type="text" id="month" class="layui-input" autocomplete="off" disableautocomplete>
 	      		</div>
 	      	</div> 
       		<div class="layui-inline">

@@ -38,7 +38,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" style="text-align:left">月份</label>
             <div class="layui-input-block" style="width:30%">
-            	<input type="text" id="addMonth" name="month" class="layui-input" width="20%" disabled="disabled" value="${businessData.month!}">
+            	<input type="text" id="addMonth" name="month" class="layui-input" width="20%" disabled="disabled" autocomplete="off" disableautocomplete value="${businessData.month!}">
         	</div>
         </div>
         <div class="layui-form-item" style="text-align:left">
@@ -55,7 +55,7 @@
 			   		<label class="layui-form-label" style="width:28%;text-align:left">${business.businessType!}</label>
 		            <label class="layui-form-label" style="width:28%;text-align:left">${business.businessName!}</label>
 		            <label class="layui-form-label" style="width:6%;text-align:left">${business.price!}</label>
-			        <input type="text" id="num" name="num"  placeholder="请输入数量" class="layui-input" maxlength="30" style="width:12%;text-align:left;float:left" lay-verify="num" value="${business.num!}" disabled="disabled">
+			        <input type="text" id="num" name="num"  placeholder="请输入数量" class="layui-input" maxlength="30" style="width:12%;text-align:left;float:left" lay-verify="num" autocomplete="off" disableautocomplete value="${business.num!}" disabled="disabled">
 			      	<input type="text" id="id1" name="id1" value=${business.id!} hidden="true" disabled="disabled"/>
 			      </div>
 			</#list>

@@ -105,7 +105,7 @@ function toEdit(data){
                	 var item = data.subjectList[i];
                     $("#subject").append("<option  value=" + item.id + ">" + item.subjectName+ "</option>");
                 }
-                $("#subejct").val(data.quota.subject);
+                $("#subject").val(data.quota.subject);
 
                 //开启编辑表单所在的弹层。注意编辑和新建的表单是一套模板
                 layerid=layer.open({

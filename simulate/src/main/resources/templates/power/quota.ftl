@@ -36,7 +36,7 @@
 	      	<div class="layui-inline">
 	      	 	<label class="layui-form-label">年份</label>
 	       		<div class="layui-input-block">
-	         		<input type="text" id="yearSearch" class="layui-input">
+	         		<input type="text" id="yearSearch" class="layui-input" autocomplete="off" disableautocomplete>
 	      		</div>
 	      	</div> 
       		<div class="layui-inline">
@@ -62,7 +62,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" >年份</label>
             <div class="layui-input-block" >
-            	<input type="text" id="year" name="year" class="layui-input" required lay-verify="required">
+            	<input type="text" id="year" name="year" class="layui-input" required lay-verify="required" autocomplete="off" disableautocomplete>
         	</div>
         </div>
        
@@ -78,7 +78,7 @@
          <div class="layui-form-item">
             <label class="layui-form-label">金额</label>
             <div class="layui-input-block">
-            	<input type="text" id="subjectValue" name="subjectValue"  placeholder="请输入成本项目金额" required lay-verify="required" class="layui-input" maxlength="9">
+            	<input type="text" id="subjectValue" name="subjectValue"  placeholder="请输入成本项目金额" autocomplete="off" disableautocomplete required lay-verify="required" class="layui-input" maxlength="9">
         	</div>
         </div>
         
