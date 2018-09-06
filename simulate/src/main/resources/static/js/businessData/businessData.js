@@ -342,7 +342,7 @@ function tableReload(){
 	                            }
 	                            if(data.state=='success'){
 	                            	layer.alert(data.mesg, function(){
-	                            		parent.layer.closeAll();
+	                            		layer.closeAll();
 	                           		 	$("#busiDataSearch").click();
 	                            	});
 	                            }

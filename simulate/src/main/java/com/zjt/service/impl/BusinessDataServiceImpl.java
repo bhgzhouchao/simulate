@@ -104,7 +104,7 @@ public class BusinessDataServiceImpl extends BaseService<BusinessData> implement
 			for(String id : Ids) {
 				//删除业务数据
 				BusinessData data = businessDataMapper.selectByPrimaryKey(Integer.valueOf(id));
-				if(data.getDeptExamine() != "1" || !"1".equals(data.getDeptExamine())) {
+				if(data.getDeptExamine() != "1" && !"1".equals(data.getDeptExamine())) {
 					ifExamine = true;
 					break;
 				}
