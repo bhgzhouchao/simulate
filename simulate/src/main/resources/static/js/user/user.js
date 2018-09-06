@@ -245,6 +245,7 @@ function pageInit() {
 		    ,skin: 'row'
 		    ,size: 'sm'
 		    ,even: true
+		    ,height : 'full-150'
 			,limit:10  //默认20条数据一页
 			,limits:[10,20,30,50]  //数据分页条
 		  });
