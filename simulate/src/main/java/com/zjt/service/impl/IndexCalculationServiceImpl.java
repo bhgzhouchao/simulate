@@ -1,5 +1,7 @@
 package com.zjt.service.impl;
 
+import static org.mockito.Matchers.intThat;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -96,206 +98,206 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 		String noSeason = "month";
 		
 		//共通
-		List<IndexVo> yearAll = selectIndex(year,getMonthList(year,12,season),subjectList);
-		List<IndexVo> oldYearAll = selectIndex(lastYear,getMonthList(lastYear,12,season),subjectList);
+		List<IndexVo> yearAll = selectIndex(year,getMonthList(year,12,season),subjectList,season);
+		List<IndexVo> oldYearAll = selectIndex(lastYear,getMonthList(lastYear,12,season),subjectList,season);
 		List<IndexVo> index = selectYearIndex(year, subjectList);
         
 		
         if(type == null || type.toString() == "season" || type.toString().equals("season")) {
         	if(month == 1 || month == 2 || month == 3){
-        		season1 = selectIndex(year,getMonthList(year,3,season),subjectList);
-        		lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList);
+        		season1 = selectIndex(year,getMonthList(year,3,season),subjectList,season);
+        		lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList,season);
     		} else if(month == 4 || month == 5 || month == 6){
-    			season1 = selectIndex(year,getMonthList(year,3,season),subjectList);
-    			season2 = selectIndex(year,getMonthList(year,6,season),subjectList);
-    			lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList);
-    			lastsSeason2 = selectIndex(lastYear,getMonthList(lastYear,6,season),subjectList);
+    			season1 = selectIndex(year,getMonthList(year,3,season),subjectList,season);
+    			season2 = selectIndex(year,getMonthList(year,6,season),subjectList,season);
+    			lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList,season);
+    			lastsSeason2 = selectIndex(lastYear,getMonthList(lastYear,6,season),subjectList,season);
     		} else if(month == 7 || month == 8 || month == 9){
-    			season1 = selectIndex(year,getMonthList(year,3,season),subjectList);
-    			season2 = selectIndex(year,getMonthList(year,6,season),subjectList);
-    			season3 = selectIndex(year,getMonthList(year,9,season),subjectList);
-    			lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList);
-    			lastsSeason2 = selectIndex(lastYear,getMonthList(lastYear,6,season),subjectList);
-    			lastsSeason3 = selectIndex(lastYear,getMonthList(lastYear,9,season),subjectList);
+    			season1 = selectIndex(year,getMonthList(year,3,season),subjectList,season);
+    			season2 = selectIndex(year,getMonthList(year,6,season),subjectList,season);
+    			season3 = selectIndex(year,getMonthList(year,9,season),subjectList,season);
+    			lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList,season);
+    			lastsSeason2 = selectIndex(lastYear,getMonthList(lastYear,6,season),subjectList,season);
+    			lastsSeason3 = selectIndex(lastYear,getMonthList(lastYear,9,season),subjectList,season);
     		} else if(month == 10 || month == 11 || month == 12){
-    			season1 = selectIndex(year,getMonthList(year,3,season),subjectList);
-    			season2 = selectIndex(year,getMonthList(year,6,season),subjectList);
-    			season3 = selectIndex(year,getMonthList(year,9,season),subjectList);
-    			season4 = selectIndex(year,getMonthList(year,12,season),subjectList);
-    			lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList);
-    			lastsSeason2 = selectIndex(lastYear,getMonthList(lastYear,6,season),subjectList);
-    			lastsSeason3 = selectIndex(lastYear,getMonthList(lastYear,9,season),subjectList);
-    			lastsSeason4 = selectIndex(lastYear,getMonthList(lastYear,9,season),subjectList);
+    			season1 = selectIndex(year,getMonthList(year,3,season),subjectList,season);
+    			season2 = selectIndex(year,getMonthList(year,6,season),subjectList,season);
+    			season3 = selectIndex(year,getMonthList(year,9,season),subjectList,season);
+    			season4 = selectIndex(year,getMonthList(year,12,season),subjectList,season);
+    			lastsSeason1 = selectIndex(lastYear,getMonthList(lastYear,3,season),subjectList,season);
+    			lastsSeason2 = selectIndex(lastYear,getMonthList(lastYear,6,season),subjectList,season);
+    			lastsSeason3 = selectIndex(lastYear,getMonthList(lastYear,9,season),subjectList,season);
+    			lastsSeason4 = selectIndex(lastYear,getMonthList(lastYear,9,season),subjectList,season);
     		}
 		} else {
 			if(month == 1){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
 			} else if(month == 2){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
 			} else if(month == 3){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
 			} else if(month == 4){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
 			} else if(month == 5){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
 			} else if(month == 6){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
-				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
+				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList,noSeason);
 			} else if(month == 7){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList);
-				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
-				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList);
-				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList,noSeason);
+				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
+				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList,noSeason);
+				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList,noSeason);
 			} else if(month == 8){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList);
-				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList);
-				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
-				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList);
-				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList);
-				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList,noSeason);
+				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList,noSeason);
+				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
+				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList,noSeason);
+				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList,noSeason);
+				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList,noSeason);
 			} else if(month == 9){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList);
-				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList);
-				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList);
-				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
-				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList);
-				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList);
-				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList);
-				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList,noSeason);
+				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList,noSeason);
+				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList,noSeason);
+				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
+				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList,noSeason);
+				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList,noSeason);
+				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList,noSeason);
+				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList,noSeason);
 			} else if(month == 10){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList);
-				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList);
-				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList);
-				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList);
-				month10 = selectIndex(year,getMonthList(year,10,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
-				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList);
-				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList);
-				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList);
-				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList);
-				oldMonth10 = selectIndex(lastYear,getMonthList(lastYear,10,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList,noSeason);
+				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList,noSeason);
+				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList,noSeason);
+				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList,noSeason);
+				month10 = selectIndex(year,getMonthList(year,10,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
+				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList,noSeason);
+				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList,noSeason);
+				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList,noSeason);
+				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList,noSeason);
+				oldMonth10 = selectIndex(lastYear,getMonthList(lastYear,10,noSeason),subjectList,noSeason);
 			} else if(month == 11){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList);
-				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList);
-				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList);
-				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList);
-				month10 = selectIndex(year,getMonthList(year,10,noSeason),subjectList);
-				month11 = selectIndex(year,getMonthList(year,11,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
-				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList);
-				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList);
-				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList);
-				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList);
-				oldMonth10 = selectIndex(lastYear,getMonthList(lastYear,10,noSeason),subjectList);
-				oldMonth11 = selectIndex(lastYear,getMonthList(lastYear,11,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList,noSeason);
+				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList,noSeason);
+				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList,noSeason);
+				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList,noSeason);
+				month10 = selectIndex(year,getMonthList(year,10,noSeason),subjectList,noSeason);
+				month11 = selectIndex(year,getMonthList(year,11,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
+				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList,noSeason);
+				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList,noSeason);
+				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList,noSeason);
+				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList,noSeason);
+				oldMonth10 = selectIndex(lastYear,getMonthList(lastYear,10,noSeason),subjectList,noSeason);
+				oldMonth11 = selectIndex(lastYear,getMonthList(lastYear,11,noSeason),subjectList,noSeason);
 			} else if(month == 12){
-				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList);
-				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList);
-				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList);
-				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList);
-				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList);
-				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList);
-				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList);
-				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList);
-				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList);
-				month10 = selectIndex(year,getMonthList(year,10,noSeason),subjectList);
-				month11 = selectIndex(year,getMonthList(year,11,noSeason),subjectList);
-				month12 = selectIndex(year,getMonthList(year,12,noSeason),subjectList);
-				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList);
-				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList);
-				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList);
-				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList);
-				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList);
-				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList);
-				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList);
-				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList);
-				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList);
-				oldMonth10 = selectIndex(lastYear,getMonthList(lastYear,10,noSeason),subjectList);
-				oldMonth11 = selectIndex(lastYear,getMonthList(lastYear,11,noSeason),subjectList);
-				oldMonth12 = selectIndex(lastYear,getMonthList(lastYear,12,noSeason),subjectList);
+				month1 = selectIndex(year,getMonthList(year,1,noSeason),subjectList,noSeason);
+				month2 = selectIndex(year,getMonthList(year,2,noSeason),subjectList,noSeason);
+				month3 = selectIndex(year,getMonthList(year,3,noSeason),subjectList,noSeason);
+				month4 = selectIndex(year,getMonthList(year,4,noSeason),subjectList,noSeason);
+				month5 = selectIndex(year,getMonthList(year,5,noSeason),subjectList,noSeason);
+				month6 = selectIndex(year,getMonthList(year,6,noSeason),subjectList,noSeason);
+				month7 = selectIndex(year,getMonthList(year,7,noSeason),subjectList,noSeason);
+				month8 = selectIndex(year,getMonthList(year,8,noSeason),subjectList,noSeason);
+				month9 = selectIndex(year,getMonthList(year,9,noSeason),subjectList,noSeason);
+				month10 = selectIndex(year,getMonthList(year,10,noSeason),subjectList,noSeason);
+				month11 = selectIndex(year,getMonthList(year,11,noSeason),subjectList,noSeason);
+				month12 = selectIndex(year,getMonthList(year,12,noSeason),subjectList,noSeason);
+				oldMonth1 = selectIndex(lastYear,getMonthList(lastYear,1,noSeason),subjectList,noSeason);
+				oldMonth2 = selectIndex(lastYear,getMonthList(lastYear,2,noSeason),subjectList,noSeason);
+				oldMonth3 = selectIndex(lastYear,getMonthList(lastYear,3,noSeason),subjectList,noSeason);
+				oldMonth4 = selectIndex(lastYear,getMonthList(lastYear,4,noSeason),subjectList,noSeason);
+				oldMonth5 = selectIndex(lastYear,getMonthList(lastYear,5,noSeason),subjectList,noSeason);
+				oldMonth6 = selectIndex(lastYear,getMonthList(lastYear,6,noSeason),subjectList,noSeason);
+				oldMonth7 = selectIndex(lastYear,getMonthList(lastYear,7,noSeason),subjectList,noSeason);
+				oldMonth8 = selectIndex(lastYear,getMonthList(lastYear,8,noSeason),subjectList,noSeason);
+				oldMonth9 = selectIndex(lastYear,getMonthList(lastYear,9,noSeason),subjectList,noSeason);
+				oldMonth10 = selectIndex(lastYear,getMonthList(lastYear,10,noSeason),subjectList,noSeason);
+				oldMonth11 = selectIndex(lastYear,getMonthList(lastYear,11,noSeason),subjectList,noSeason);
+				oldMonth12 = selectIndex(lastYear,getMonthList(lastYear,12,noSeason),subjectList,noSeason);
 			}
 		}
         
@@ -447,7 +449,7 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 	}
 	
 	
-	public List<IndexVo> selectIndex(int year,List<String> months,List<Subject> subjectList){
+	public List<IndexVo> selectIndex(int year,List<String> months,List<Subject> subjectList,String type){
 		
 		List<IndexVo> indexList = new ArrayList<IndexVo>();
 		//不可控成本
@@ -539,7 +541,8 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 		indexList.get(62).setIndex(income);
 		
 		//报表利润计算
-		BigDecimal incomeCore = indexList.get(63).getIndex();//核心业务收入
+		//BigDecimal incomeCore = indexList.get(63).getIndex();//核心业务收入
+		BigDecimal incomeCore = indexList.get(65).getIndex();//其他业务收入
 		//加上主营业务收入
 		incomeCore = incomeCore.add(indexList.get(66).getIndex());
 		//加上其他收益
@@ -584,7 +587,7 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 			indexList.get(74).setIndex(cost);
 		}
 		//投入产出比计算
-		List<IndexVo> selectInputOutputRate = selectInputOutputRate(year, months, subjectList);
+		List<IndexVo> selectInputOutputRate = selectInputOutputRate(year, months, subjectList, type);
 		/**
 		 * 投入产出比 计算公式
 		 * 投入产出比 = （当年模拟利润-去年模拟利润）/（（当年营业总成本-当年固定资产折旧-当年无形资产摊销）-（去年营业总成本-去年固定资产折旧-去年无形资产摊销））
@@ -596,8 +599,8 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 		index1 = index1.subtract(indexList.get(4).getIndex());
 		index1 = index1.subtract(indexList.get(8).getIndex());
 		index1 = index1.subtract(selectInputOutputRate.get(1).getIndex());
-		index1 = index1.subtract(selectInputOutputRate.get(4).getIndex());
-		index1 = index1.subtract(selectInputOutputRate.get(8).getIndex());
+		index1 = index1.add(selectInputOutputRate.get(4).getIndex());
+		index1 = index1.add(selectInputOutputRate.get(8).getIndex());
 		
 		if(index1 == BigDecimal.ZERO) {
 			indexList.get(75).setIndex(BigDecimal.ZERO);
@@ -617,14 +620,12 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 	 * @param subjectList
 	 * @return
 	 */
-	public List<IndexVo> selectInputOutputRate(int year,List<String> months,List<Subject> subjectList){
-		List<String> lastMonths = new ArrayList<>();
-		for(int i = 1; i <= months.size(); i++) {
-			if(months.size() > 9) {
-				lastMonths.add(String.valueOf(year-1)+ "-" + String.valueOf(i));
-			} else {
-				lastMonths.add(String.valueOf(year-1)+ "-0" + String.valueOf(i));
-			}
+	public List<IndexVo> selectInputOutputRate(int year,List<String> months,List<Subject> subjectList,String type){
+		List<String> lastMonths = new ArrayList<String>();
+		for(int i = 0; i < months.size(); i++) {
+			String obj[] = months.get(i).split("-");
+			Integer ye = Integer.valueOf(obj[0]) - 1;
+			lastMonths.add(String.valueOf(ye) + "-" + obj[1]);
 		}
 		List<IndexVo> indexList = new ArrayList<IndexVo>();
 		//不可控成本
@@ -677,13 +678,18 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 			}
 			indexList.add(indexVo);
 		}
+		//财务费用
+		BigDecimal finance = indexList.get(60).getIndex();
+		finance = finance.divide(new BigDecimal(3),2,BigDecimal.ROUND_HALF_UP);
+		indexList.get(60).setIndex(finance);
+		
 		BigDecimal costTotal = noCost.add(yesCost);
 		//加上其他业务成本
-		costTotal.add(indexList.get(58).getIndex());
+		costTotal = costTotal.add(indexList.get(58).getIndex());
 		//加上税金
-		costTotal.add(indexList.get(59).getIndex());
+		costTotal = costTotal.add(indexList.get(59).getIndex());
 		//加上财务费用
-		costTotal.add(indexList.get(60).getIndex());
+		costTotal = costTotal.add(indexList.get(60).getIndex());
 		
 		//营业总成本
 		indexList.get(0).setIndex(costTotal);
@@ -699,41 +705,42 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 		//收入计算
 		BigDecimal income = indexList.get(63).getIndex();//核心业务收入
 		//加上科技项目专项补偿
-		income.add(indexList.get(64).getIndex());
+		income = income.add(indexList.get(64).getIndex());
 		//加上其他业务收入
-		income.add(indexList.get(65).getIndex());
+		income = income.add(indexList.get(65).getIndex());
 		//加上主营业务收入
-		income.add(indexList.get(66).getIndex());
+		income = income.add(indexList.get(66).getIndex());
 		//加上其他收益
-		income.add(indexList.get(67).getIndex());
+		income = income.add(indexList.get(67).getIndex());
 		//加上营业外收入
-		income.add(indexList.get(68).getIndex());
+		income = income.add(indexList.get(68).getIndex());
 		indexList.get(62).setIndex(income);
 		
 		//报表利润计算
-		BigDecimal incomeCore = indexList.get(63).getIndex();//核心业务收入
+		//BigDecimal incomeCore = indexList.get(63).getIndex();//核心业务收入
+		BigDecimal incomeCore = indexList.get(65).getIndex();//其他业务收入
 		//加上主营业务收入
-		incomeCore.add(indexList.get(66).getIndex());
+		incomeCore = incomeCore.add(indexList.get(66).getIndex());
 		//加上其他收益
-		incomeCore.add(indexList.get(67).getIndex());
+		incomeCore = incomeCore.add(indexList.get(67).getIndex());
 		//加上营业外收入
-		incomeCore.add(indexList.get(68).getIndex());
+		incomeCore = incomeCore.add(indexList.get(68).getIndex());
 		//减去营业总成本
-		incomeCore.subtract(indexList.get(0).getIndex());
+		incomeCore = incomeCore.subtract(indexList.get(0).getIndex());
 		//减去营业外成本
-		incomeCore.subtract(indexList.get(69).getIndex());
+		incomeCore = incomeCore.subtract(indexList.get(69).getIndex());
 		indexList.get(70).setIndex(incomeCore);
 		
 		//模拟利润计算
 		BigDecimal incomeCore1 = indexList.get(63).getIndex();//核心业务收入
 		//加上报表利润
-		incomeCore1.add(indexList.get(70).getIndex());
+		incomeCore1 = incomeCore1.add(indexList.get(70).getIndex());
 		//加上固定资产折旧
-		incomeCore1.add(indexList.get(4).getIndex());
+		incomeCore1 = incomeCore1.add(indexList.get(4).getIndex());
 		//加上无形资产摊销
-		incomeCore1.add(indexList.get(8).getIndex());
+		incomeCore1 = incomeCore1.add(indexList.get(8).getIndex());
 		//加上科技项目专项补偿
-		incomeCore1.add(indexList.get(64).getIndex());
+		incomeCore1 = incomeCore1.add(indexList.get(64).getIndex());
 		indexList.get(72).setIndex(incomeCore1);
 		
 		//人均模拟利润计算
@@ -753,13 +760,8 @@ public class IndexCalculationServiceImpl implements IndexCalculationService {
 			cost = cost.subtract(indexList.get(4).getIndex());
 			cost = cost.subtract(indexList.get(8).getIndex());
 			cost = cost.divide(indexList.get(71).getIndex(),2,BigDecimal.ROUND_HALF_UP);
-			indexList.get(73).setIndex(cost);
+			indexList.get(74).setIndex(cost);
 		}
-		
-		//财务费用
-		BigDecimal finance = indexList.get(60).getIndex();
-		finance = finance.divide(new BigDecimal(3),2,BigDecimal.ROUND_HALF_UP);
-		indexList.get(60).setIndex(finance);
 		return indexList;
 	}
 	
