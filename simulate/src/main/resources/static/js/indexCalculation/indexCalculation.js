@@ -382,6 +382,24 @@ function initTableCols(type){
 				 ]]
 		}
 	}
+	
+	
+	$("#export").click(function () {
+		type = $("#calculationType").val();
+        $.ajax({
+             type: "POST",
+             url:"busi/indexCalculation/export",
+             data:{"type":type},
+             async: false,
+             error: function(request) {
+                 layer.alert("与服务器连接失败/(ㄒoㄒ)/~~");
+             },
+             success: function(data) {
+            	 
+             }
+                
+         });
+    });
 }
 
 

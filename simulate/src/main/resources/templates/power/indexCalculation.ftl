@@ -47,6 +47,7 @@
 	      	</div> 
       		<div class="layui-inline">
         		<button class="layui-btn layui-btn-sm"  id="search">查询</button>
+		        <!-- <button class="layui-btn layui-btn-sm" id="export">导出报表</button> -->
       		</div>
        	</div>
   	  </div>

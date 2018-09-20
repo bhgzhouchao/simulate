@@ -20,7 +20,7 @@
 		base_data
 	WHERE
 		`month` IN  
-	<foreach item="months" index="index" collection="months" open="(" separator="," close=")">  
+	<foreach close=")" collection="months" index="index" item="months" open="(" separator=",">  
   		#{months}  
  	</foreach> 
   </select>  
